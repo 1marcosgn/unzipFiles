@@ -1,0 +1,10 @@
+PODS:
+  - UnzipKit (1.6.2)
+
+DEPENDENCIES:
+  - UnzipKit (~> 1.6)
+
+SPEC CHECKSUMS:
+  UnzipKit: 0ba0a039e162e6dba98b5c53c6edc9aef081b69c
+
+COCOAPODS: 0.38.2

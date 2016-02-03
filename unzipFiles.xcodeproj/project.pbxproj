@@ -7,15 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19DC3C23D82482B56ADFFA69 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16CDF9B64CA3E3DC5D9ECC5F /* libPods.a */; };
 		7FB1C2B61C5DEF270093FE7B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1C2B51C5DEF270093FE7B /* main.m */; };
 		7FB1C2B91C5DEF270093FE7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1C2B81C5DEF270093FE7B /* AppDelegate.m */; };
 		7FB1C2BC1C5DEF270093FE7B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1C2BB1C5DEF270093FE7B /* ViewController.m */; };
 		7FB1C2BF1C5DEF270093FE7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FB1C2BD1C5DEF270093FE7B /* Main.storyboard */; };
 		7FB1C2C11C5DEF270093FE7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FB1C2C01C5DEF270093FE7B /* Assets.xcassets */; };
-		7FB1C2C41C5DEF270093FE7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FB1C2C21C5DEF270093FE7B /* LaunchScreen.storyboard */; };
+		7FB1C2DB1C5EE3640093FE7B /* UnzipFilesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1C2DA1C5EE3640093FE7B /* UnzipFilesTableViewController.m */; };
+		7FB1C2DF1C5EE8A30093FE7B /* UnzipFilesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1C2DD1C5EE8A30093FE7B /* UnzipFilesTableViewCell.m */; };
+		7FB1C2E01C5EE8A30093FE7B /* UnzipFilesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FB1C2DE1C5EE8A30093FE7B /* UnzipFilesTableViewCell.xib */; };
+		7FB1C2E41C5EED9D0093FE7B /* UnzipFilesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1C2E21C5EED9D0093FE7B /* UnzipFilesDetailViewController.m */; };
+		7FB1C2E51C5EED9D0093FE7B /* UnzipFilesDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FB1C2E31C5EED9D0093FE7B /* UnzipFilesDetailViewController.xib */; };
+		7FB1C2E91C5F1A7B0093FE7B /* ArchiveFiles.zip in Resources */ = {isa = PBXBuildFile; fileRef = 7FB1C2E81C5F1A7B0093FE7B /* ArchiveFiles.zip */; };
+		7FB1C2ED1C5F2C670093FE7B /* MIMETypes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FB1C2EC1C5F2C670093FE7B /* MIMETypes.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16CDF9B64CA3E3DC5D9ECC5F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FB1C2B11C5DEF270093FE7B /* unzipFiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = unzipFiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FB1C2B51C5DEF270093FE7B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7FB1C2B71C5DEF270093FE7B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -24,8 +32,19 @@
 		7FB1C2BB1C5DEF270093FE7B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7FB1C2BE1C5DEF270093FE7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7FB1C2C01C5DEF270093FE7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7FB1C2C31C5DEF270093FE7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7FB1C2C51C5DEF270093FE7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7FB1C2D91C5EE3640093FE7B /* UnzipFilesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnzipFilesTableViewController.h; sourceTree = "<group>"; };
+		7FB1C2DA1C5EE3640093FE7B /* UnzipFilesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnzipFilesTableViewController.m; sourceTree = "<group>"; };
+		7FB1C2DC1C5EE8A30093FE7B /* UnzipFilesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnzipFilesTableViewCell.h; sourceTree = "<group>"; };
+		7FB1C2DD1C5EE8A30093FE7B /* UnzipFilesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnzipFilesTableViewCell.m; sourceTree = "<group>"; };
+		7FB1C2DE1C5EE8A30093FE7B /* UnzipFilesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnzipFilesTableViewCell.xib; sourceTree = "<group>"; };
+		7FB1C2E11C5EED9D0093FE7B /* UnzipFilesDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnzipFilesDetailViewController.h; sourceTree = "<group>"; };
+		7FB1C2E21C5EED9D0093FE7B /* UnzipFilesDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnzipFilesDetailViewController.m; sourceTree = "<group>"; };
+		7FB1C2E31C5EED9D0093FE7B /* UnzipFilesDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnzipFilesDetailViewController.xib; sourceTree = "<group>"; };
+		7FB1C2E81C5F1A7B0093FE7B /* ArchiveFiles.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = ArchiveFiles.zip; sourceTree = "<group>"; };
+		7FB1C2EC1C5F2C670093FE7B /* MIMETypes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MIMETypes.plist; sourceTree = "<group>"; };
+		892C9B2DED8BF4E65BC19CAE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		92DBAED8BDC0DEB20AEBE9F7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19DC3C23D82482B56ADFFA69 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +64,8 @@
 			children = (
 				7FB1C2B31C5DEF270093FE7B /* unzipFiles */,
 				7FB1C2B21C5DEF270093FE7B /* Products */,
+				FDB1D6FCB2D96E43EC19B25C /* Pods */,
+				9185F1108F9E906A60561805 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,15 +80,23 @@
 		7FB1C2B31C5DEF270093FE7B /* unzipFiles */ = {
 			isa = PBXGroup;
 			children = (
+				7FB1C2D41C5DF4C10093FE7B /* Resources */,
 				7FB1C2B71C5DEF270093FE7B /* AppDelegate.h */,
 				7FB1C2B81C5DEF270093FE7B /* AppDelegate.m */,
 				7FB1C2BA1C5DEF270093FE7B /* ViewController.h */,
 				7FB1C2BB1C5DEF270093FE7B /* ViewController.m */,
 				7FB1C2BD1C5DEF270093FE7B /* Main.storyboard */,
 				7FB1C2C01C5DEF270093FE7B /* Assets.xcassets */,
-				7FB1C2C21C5DEF270093FE7B /* LaunchScreen.storyboard */,
 				7FB1C2C51C5DEF270093FE7B /* Info.plist */,
 				7FB1C2B41C5DEF270093FE7B /* Supporting Files */,
+				7FB1C2D91C5EE3640093FE7B /* UnzipFilesTableViewController.h */,
+				7FB1C2DA1C5EE3640093FE7B /* UnzipFilesTableViewController.m */,
+				7FB1C2DC1C5EE8A30093FE7B /* UnzipFilesTableViewCell.h */,
+				7FB1C2DD1C5EE8A30093FE7B /* UnzipFilesTableViewCell.m */,
+				7FB1C2DE1C5EE8A30093FE7B /* UnzipFilesTableViewCell.xib */,
+				7FB1C2E11C5EED9D0093FE7B /* UnzipFilesDetailViewController.h */,
+				7FB1C2E21C5EED9D0093FE7B /* UnzipFilesDetailViewController.m */,
+				7FB1C2E31C5EED9D0093FE7B /* UnzipFilesDetailViewController.xib */,
 			);
 			path = unzipFiles;
 			sourceTree = "<group>";
@@ -79,6 +109,32 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		7FB1C2D41C5DF4C10093FE7B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7FB1C2E81C5F1A7B0093FE7B /* ArchiveFiles.zip */,
+				7FB1C2EC1C5F2C670093FE7B /* MIMETypes.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		9185F1108F9E906A60561805 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				16CDF9B64CA3E3DC5D9ECC5F /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FDB1D6FCB2D96E43EC19B25C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				92DBAED8BDC0DEB20AEBE9F7 /* Pods.debug.xcconfig */,
+				892C9B2DED8BF4E65BC19CAE /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +142,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7FB1C2C81C5DEF270093FE7B /* Build configuration list for PBXNativeTarget "unzipFiles" */;
 			buildPhases = (
+				767832A45F5ACB812A4642F7 /* Check Pods Manifest.lock */,
 				7FB1C2AD1C5DEF270093FE7B /* Sources */,
 				7FB1C2AE1C5DEF270093FE7B /* Frameworks */,
 				7FB1C2AF1C5DEF270093FE7B /* Resources */,
+				A7BAA4B98FB87C9B3B57901A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -110,6 +168,7 @@
 				TargetAttributes = {
 					7FB1C2B01C5DEF270093FE7B = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = YXC4836V89;
 					};
 				};
 			};
@@ -136,13 +195,49 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FB1C2C41C5DEF270093FE7B /* LaunchScreen.storyboard in Resources */,
+				7FB1C2ED1C5F2C670093FE7B /* MIMETypes.plist in Resources */,
 				7FB1C2C11C5DEF270093FE7B /* Assets.xcassets in Resources */,
+				7FB1C2E91C5F1A7B0093FE7B /* ArchiveFiles.zip in Resources */,
 				7FB1C2BF1C5DEF270093FE7B /* Main.storyboard in Resources */,
+				7FB1C2E01C5EE8A30093FE7B /* UnzipFilesTableViewCell.xib in Resources */,
+				7FB1C2E51C5EED9D0093FE7B /* UnzipFilesDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		767832A45F5ACB812A4642F7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A7BAA4B98FB87C9B3B57901A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7FB1C2AD1C5DEF270093FE7B /* Sources */ = {
@@ -151,6 +246,9 @@
 			files = (
 				7FB1C2BC1C5DEF270093FE7B /* ViewController.m in Sources */,
 				7FB1C2B91C5DEF270093FE7B /* AppDelegate.m in Sources */,
+				7FB1C2E41C5EED9D0093FE7B /* UnzipFilesDetailViewController.m in Sources */,
+				7FB1C2DF1C5EE8A30093FE7B /* UnzipFilesTableViewCell.m in Sources */,
+				7FB1C2DB1C5EE3640093FE7B /* UnzipFilesTableViewController.m in Sources */,
 				7FB1C2B61C5DEF270093FE7B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -164,14 +262,6 @@
 				7FB1C2BE1C5DEF270093FE7B /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		7FB1C2C21C5DEF270093FE7B /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7FB1C2C31C5DEF270093FE7B /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -259,8 +349,11 @@
 		};
 		7FB1C2C91C5DEF270093FE7B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92DBAED8BDC0DEB20AEBE9F7 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = unzipFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = demo.app.unzipFiles;
@@ -270,8 +363,11 @@
 		};
 		7FB1C2CA1C5DEF270093FE7B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 892C9B2DED8BF4E65BC19CAE /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = unzipFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = demo.app.unzipFiles;
@@ -298,6 +394,7 @@
 				7FB1C2CA1C5DEF270093FE7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

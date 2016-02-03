@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 
+#define kNotificationName @"AppOpeningZipFileNotification"
+#define kZipExtension @"zip"
+
 @interface AppDelegate ()
 
 @end
@@ -40,6 +43,22 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - "Open in" handle .zip documents
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    if (url != nil && [url isFileURL])
+    {
+        //.zip file handling
+        if ([[url pathExtension] isEqualToString:kZipExtension])
+        {
+            //Post notification to indicate that a .zip file has been opened using this app
+            [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationName
+                                                                object:url];
+        }
+    }
+    return YES;
 }
 
 @end

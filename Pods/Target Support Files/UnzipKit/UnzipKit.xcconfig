@@ -1,0 +1,1 @@
+UNZIPKIT_OTHER_LDFLAGS = -l"z"

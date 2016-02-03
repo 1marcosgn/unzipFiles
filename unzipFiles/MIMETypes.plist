@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>doc</key>
+	<string>application/msword</string>
+	<key>dot</key>
+	<string>application/msword</string>
+	<key>docx</key>
+	<string>application/vnd.openxmlformats-officedocument.wordprocessingml.document</string>
+	<key>dotx</key>
+	<string>application/vnd.openxmlformats-officedocument.wordprocessingml.template</string>
+	<key>docm</key>
+	<string>application/vnd.ms-word.document.macroEnabled.12</string>
+	<key>dotm</key>
+	<string>application/vnd.ms-word.template.macroEnabled.12</string>
+	<key>xls</key>
+	<string>application/vnd.ms-excel</string>
+	<key>xlt</key>
+	<string>application/vnd.ms-excel</string>
+	<key>xla</key>
+	<string>application/vnd.ms-excel</string>
+	<key>xlsx</key>
+	<string>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</string>
+	<key>xltx</key>
+	<string>application/vnd.openxmlformats-officedocument.spreadsheetml.template</string>
+	<key>xlsm</key>
+	<string>application/vnd.ms-excel.sheet.macroEnabled.12</string>
+	<key>xltm</key>
+	<string>application/vnd.ms-excel.template.macroEnabled.12</string>
+	<key>xlam</key>
+	<string>application/vnd.ms-excel.addin.macroEnabled.12</string>
+	<key>xlsb</key>
+	<string>application/vnd.ms-excel.sheet.binary.macroEnabled.12</string>
+	<key>ppt</key>
+	<string>application/vnd.ms-powerpoint</string>
+	<key>pot</key>
+	<string>application/vnd.ms-powerpoint</string>
+	<key>pps</key>
+	<string>application/vnd.ms-powerpoint</string>
+	<key>ppa</key>
+	<string>application/vnd.ms-powerpoint</string>
+	<key>pptx</key>
+	<string>application/vnd.openxmlformats-officedocument.presentationml.presentation</string>
+	<key>potx</key>
+	<string>application/vnd.openxmlformats-officedocument.presentationml.template</string>
+	<key>ppsx</key>
+	<string>application/vnd.openxmlformats-officedocument.presentationml.slideshow</string>
+	<key>ppam</key>
+	<string>application/vnd.ms-powerpoint.addin.macroEnabled.12</string>
+	<key>pptm</key>
+	<string>application/vnd.ms-powerpoint.presentation.macroEnabled.12</string>
+	<key>potm</key>
+	<string>application/vnd.ms-powerpoint.presentation.macroEnabled.12</string>
+	<key>ppsm</key>
+	<string>application/vnd.ms-powerpoint.slideshow.macroEnabled.12</string>
+	<key>pdf</key>
+	<string>application/pdf</string>
+	<key>jpg</key>
+	<string>image/jpg</string>
+	<key>png</key>
+	<string>image/png</string>
+	<key>txt</key>
+	<string>text/plain</string>
+</dict>
+</plist>
