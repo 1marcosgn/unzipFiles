@@ -11,6 +11,8 @@
 #define kNotificationName @"AppOpeningZipFileNotification"
 #define kZipExtension @"zip"
 
+static int outstandingRequests;
+
 @interface AppDelegate ()
 
 @end
@@ -18,8 +20,20 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
     // Override point for customization after application launch.
+    
+    NSString *dropBoxAppKey = @"sg40lm7g7bzcl0q";
+    NSString *dropBoxAppSecret = @"h1n0p3fxiptm67g";
+    NSString *root = kDBRootDropbox;
+    
+    DBSession *session = [[DBSession alloc] initWithAppKey:dropBoxAppKey appSecret:dropBoxAppSecret root:root];
+    session.delegate = self;
+    [DBSession setSharedSession:session];
+    
+    [DBRequest setNetworkRequestDelegate:self];
+    
     return YES;
 }
 
@@ -56,9 +70,81 @@
             //Post notification to indicate that a .zip file has been opened using this app
             [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationName
                                                                 object:url];
+            
+            return YES;
         }
+        
     }
-    return YES;
+    
+    if ([[DBSession sharedSession] handleOpenURL:url]) {
+        if ([[DBSession sharedSession] isLinked]) {
+            [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"OPEN_DROPBOX_VIEW" object:nil]];
+        }
+        return YES;
+    }
+    
+    return NO;
+    
+    
 }
+
+#pragma mark - DBSessionDelegate methods
+- (void)sessionDidReceiveAuthorizationFailure:(DBSession*)session userId:(NSString *)userId
+{
+    relinkUserId = userId;
+    
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Dropbox Session Ended"
+                                  message:@"Do you want to relink?"
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* yesButton = [UIAlertAction
+                                actionWithTitle:@"Relink"
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction * action)
+                                {
+                                    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+                                    UINavigationController *controller = (UINavigationController*)[mainStoryboard instantiateViewControllerWithIdentifier:@"NavigationController"];
+                                    [[DBSession sharedSession] linkFromController:[controller visibleViewController]];
+                                }];
+    UIAlertAction* noButton = [UIAlertAction
+                               actionWithTitle:@"Cancel"
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action)
+                               {
+                                   relinkUserId = nil;
+                               }];
+    
+    [alert addAction:yesButton];
+    [alert addAction:noButton];
+    
+    UIWindow *alertWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    alertWindow.rootViewController = [[UIViewController alloc] init];
+    alertWindow.windowLevel = UIWindowLevelAlert + 1;
+    [alertWindow makeKeyAndVisible];
+    [alertWindow.rootViewController presentViewController:alert animated:YES completion:nil];
+    
+    
+}
+
+#pragma mark - DBNetworkRequestDelegate methods
+
+- (void)networkRequestStarted
+{
+    outstandingRequests++;
+    if (outstandingRequests == 1) {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    }
+}
+
+- (void)networkRequestStopped
+{
+    outstandingRequests--;
+    if (outstandingRequests == 0) {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    }
+}
+
+
 
 @end

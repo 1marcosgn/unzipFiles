@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		19DC3C23D82482B56ADFFA69 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16CDF9B64CA3E3DC5D9ECC5F /* libPods.a */; };
+		7F1F1C8A1CA5A73C00D82411 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1F1C891CA5A73C00D82411 /* DropboxSDK.framework */; };
+		7F1F1C8C1CA5A8BB00D82411 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1F1C8B1CA5A8BB00D82411 /* Security.framework */; };
 		7FB1C2B61C5DEF270093FE7B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1C2B51C5DEF270093FE7B /* main.m */; };
 		7FB1C2B91C5DEF270093FE7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1C2B81C5DEF270093FE7B /* AppDelegate.m */; };
 		7FB1C2BC1C5DEF270093FE7B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1C2BB1C5DEF270093FE7B /* ViewController.m */; };
@@ -24,6 +26,8 @@
 
 /* Begin PBXFileReference section */
 		16CDF9B64CA3E3DC5D9ECC5F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F1F1C891CA5A73C00D82411 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
+		7F1F1C8B1CA5A8BB00D82411 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		7FB1C2B11C5DEF270093FE7B /* unzipFiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = unzipFiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FB1C2B51C5DEF270093FE7B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7FB1C2B71C5DEF270093FE7B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -52,6 +56,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F1F1C8C1CA5A8BB00D82411 /* Security.framework in Frameworks */,
+				7F1F1C8A1CA5A73C00D82411 /* DropboxSDK.framework in Frameworks */,
 				19DC3C23D82482B56ADFFA69 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,6 +65,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F1F1C881CA5A73C00D82411 /* DropboxFramework */ = {
+			isa = PBXGroup;
+			children = (
+				7F1F1C891CA5A73C00D82411 /* DropboxSDK.framework */,
+			);
+			name = DropboxFramework;
+			path = unzipFiles/DropboxFramework;
+			sourceTree = "<group>";
+		};
 		7FB1C2A81C5DEF270093FE7B = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +136,8 @@
 		9185F1108F9E906A60561805 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7F1F1C8B1CA5A8BB00D82411 /* Security.framework */,
+				7F1F1C881CA5A73C00D82411 /* DropboxFramework */,
 				16CDF9B64CA3E3DC5D9ECC5F /* libPods.a */,
 			);
 			name = Frameworks;
@@ -370,7 +387,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/unzipFiles/DropboxFramework",
+				);
 				INFOPLIST_FILE = unzipFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = demo.app.unzipFiles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -384,7 +406,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/unzipFiles/DropboxFramework",
+				);
 				INFOPLIST_FILE = unzipFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = demo.app.unzipFiles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
