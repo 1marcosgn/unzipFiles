@@ -45,5 +45,14 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>db-sg40lm7g7bzcl0q</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>

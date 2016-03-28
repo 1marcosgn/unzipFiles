@@ -7,11 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <DropboxSDK/DropboxSDK.h>
 
-@interface UnzipFilesDetailViewController : UIViewController
+@interface UnzipFilesDetailViewController : UIViewController <DBRestClientDelegate>
+{
+    NSString *viewName;
+    DBRestClient *restClient;
+}
 
 @property (weak, nonatomic) IBOutlet UIWebView *detailWebView;
 @property (nonatomic, assign) NSDictionary *unzipedFileData;
 @property (nonatomic, assign) NSString *unzipedFileExtesion;
+@property (nonatomic, readonly) DBRestClient *restClient;
+@property (nonatomic, strong) NSString *loadData;
 
 @end
