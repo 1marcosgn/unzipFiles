@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <DropboxSDK/DropboxSDK.h>
+#import "GTMOAuth2ViewControllerTouch.h"
+#import "GTLDrive.h"
 
 @interface UnzipFilesDetailViewController : UIViewController <DBRestClientDelegate>
 {
@@ -20,5 +22,8 @@
 @property (nonatomic, assign) NSString *unzipedFileExtesion;
 @property (nonatomic, readonly) DBRestClient *restClient;
 @property (nonatomic, strong) NSString *loadData;
+
+//Drive
+@property (nonatomic, strong) GTLServiceDrive *service;
 
 @end
