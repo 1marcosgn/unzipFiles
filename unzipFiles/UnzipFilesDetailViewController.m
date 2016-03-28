@@ -8,7 +8,18 @@
 
 #import "UnzipFilesDetailViewController.h"
 
+#define kObserverOpenDropBox  @"OPEN_DROPBOX_VIEW"
+#define kData                 @"data"
+#define kfileName             @"fileName"
+#define kMIMEType             @"MIMEType"
+#define kEncoding             @"utf-8"
+#define kViewName             @"OpenUploadFileView"
+#define kdestinationPath      @"/unzipFiles"
+
 @interface UnzipFilesDetailViewController ()
+{
+    NSURL *fileURL;
+}
 
 @end
 
@@ -23,8 +34,12 @@
     [super viewDidLoad];
     [self displayInfoOnView];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dropboxLoginDone) name:@"OPEN_DROPBOX_VIEW" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(dropboxLoginDone)
+                                                 name:kObserverOpenDropBox
+                                               object:nil];
     
+    //::
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithTitle:@"share"
                                                                     style:UIBarButtonItemStylePlain
                                                                    target:self action:@selector(shareMyFile)];
@@ -33,14 +48,10 @@
     
     [shareButton setTitleTextAttributes:attributes forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = shareButton;
+    //::
     
+    self.detailWebView.scalesPageToFit = YES;
     [self displayInfoOnView];
-    
-}
-
--(void)dropboxLoginDone
-{
-    NSLog(@"User logged in successfully.");
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,48 +61,84 @@
 
 - (void)displayInfoOnView
 {
-    self.detailWebView.scalesPageToFit = YES;
-    
-    //Method to parse the data file information regarding extension
-    [self.detailWebView loadData:unzipedFileData[@"data"]
-                        MIMEType:unzipedFileData[@"MIMEType"]
-                textEncodingName:@"utf-8"
+    [self.detailWebView loadData:unzipedFileData[kData]
+                        MIMEType:unzipedFileData[kMIMEType]
+                textEncodingName:kEncoding
                          baseURL:[NSURL URLWithString:@""]];
 }
 
+//TODO: Detail screen will have the ability to share that document.. dropbox , etc, etc.. (for free)
 - (void)shareMyFile
 {
-    //TODO: Detail screen will have the ability to share that document.. dropbox , etc, etc.. (for free)
-    
-    if (![[DBSession sharedSession] isLinked]) {
-        viewName = @"OpenUploadFileView";
+    //Dropbox
+    if (![[DBSession sharedSession] isLinked])
+    {
+        viewName = kViewName;
         [[DBSession sharedSession] linkFromController:self];
-    } else {
-        //[self performSegueWithIdentifier:@"OpenUploadFileView" sender:self];
-        
-        //Uptade the file to Dropbox...
-        
-        NSLog(@"Uptade the file to Dropbox...");
-        
-        NSString *destinationPath = @"/";
-        
-        [restClient uploadFile:<#(NSString *)#>
-                        toPath:<#(NSString *)#>
-                 withParentRev:<#(NSString *)#>
-                      fromPath:<#(NSString *)#>
-        
     }
+    else
+    {
+        //Uptade the file to Dropbox...
+        [self uploadFileToDropBox];
+    }
+}
+
+- (NSString *)temporaryDirectory
+{
+    //Generating a Unique Directory or File Name
+    NSString *fileName = unzipedFileData[kfileName];
+    fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
     
+    //Creating a Temporary Directory
+    NSURL *directoryURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:[[NSProcessInfo processInfo] globallyUniqueString]] isDirectory:YES];
+    
+    NSError *error = nil;
+    [[NSFileManager defaultManager] createDirectoryAtURL:directoryURL withIntermediateDirectories:YES attributes:nil error:&error];
+    
+    fileURL = [directoryURL URLByAppendingPathComponent:fileName];
+    
+    NSData *data = unzipedFileData[kData];
+    
+    [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
+    
+    NSString *fileURLString = [fileURL path];
+    
+    return fileURLString;
+}
+
+//Remove temporal file after upload
+- (void)cleaningUp
+{
+    NSError *error = nil;
+    [[NSFileManager defaultManager] removeItemAtURL:fileURL error:&error];
 }
 
 #pragma mark - Dropbox Methods
 - (DBRestClient *)restClient
 {
-    if (restClient == nil) {
+    if (restClient == nil)
+    {
         restClient = [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
         restClient.delegate = self;
     }
     return restClient;
+}
+
+//User logged in successfully
+-(void)dropboxLoginDone
+{
+    [self uploadFileToDropBox];
+}
+
+- (void)uploadFileToDropBox
+{
+    NSString *destinationPath = kdestinationPath;
+    NSString *fileName = unzipedFileData[kfileName];
+    
+    [self.restClient uploadFile:fileName
+                         toPath:destinationPath
+                  withParentRev:nil
+                       fromPath:[self temporaryDirectory]];
 }
 
 -(void)fetchAllDropboxData
@@ -99,17 +146,21 @@
     [self.restClient loadMetadata:loadData];
 }
 
-#pragma mark - DBRestClientDelegate Methods for Load Data
-- (void)restClient:(DBRestClient*)client loadedMetadata:(DBMetadata *)metadata
+- (void)restClient:(DBRestClient *)client uploadedFile:(NSString *)destPath
+              from:(NSString *)srcPath metadata:(DBMetadata *)metadata
 {
-    for (int i = 0; i < [metadata.contents count]; i++)
-    {
-        //DBMetadata *data = [metadata.contents objectAtIndex:i];
-        //[marrDownloadData addObject:data];
-    }
-    //[tbDownload reloadData];
-    //[MBProgressHUD hideHUDForView:self.view animated:YES];
+    //File uploaded successfully to path: metadata.path
+    [self cleaningUp];
 }
 
+- (void)restClient:(DBRestClient *)client uploadFileFailedWithError:(NSError *)error
+{
+    NSLog(@"File upload failed with error: %@", error);
+}
+
+- (void)dropboxLogOut
+{
+    [[DBSession sharedSession]unlinkAll];
+}
 
 @end
