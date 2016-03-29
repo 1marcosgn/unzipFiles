@@ -10,6 +10,8 @@
 #import <DropboxSDK/DropboxSDK.h>
 #import "GTMOAuth2ViewControllerTouch.h"
 #import "GTLDrive.h"
+#import "MenuItem.h"
+#import "PopMenu.h"
 
 @interface UnzipFilesDetailViewController : UIViewController <DBRestClientDelegate>
 {

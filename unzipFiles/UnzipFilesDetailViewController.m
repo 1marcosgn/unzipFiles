@@ -17,11 +17,18 @@
 #define kdestinationPath      @"/unzipFiles"
 #define kKeychainItemName     @"Drive API"
 #define kClientID             @"536472992283-tdmpthrig9mt3gnq7qlbperp7l2sg2tk.apps.googleusercontent.com"
+#define kFolderTitle          @"unzipFiles"
+#define kFolderMimeType       @"application/vnd.google-apps.folder"
+#define kDropbox              @"Dropbox"
+#define kGoogleDrive          @"Google Drive"
+#define kiCloud               @"iCloud"
 
 @interface UnzipFilesDetailViewController ()
 {
     NSURL *fileURL;
 }
+
+@property (nonatomic, strong) PopMenu *popMenu;
 
 @end
 
@@ -47,7 +54,7 @@
     //::
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithTitle:@"share"
                                                                     style:UIBarButtonItemStylePlain
-                                                                   target:self action:@selector(shareMyFile)];
+                                                                   target:self action:@selector(showPopMenu)];
     
     NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"FM College Team" size:30], NSFontAttributeName, [UIColor whiteColor], NSForegroundColorAttributeName, nil];
     
@@ -76,34 +83,48 @@
 }
 
 //TODO: Detail screen will have the ability to share that document.. dropbox , etc, etc.. (for free)
-- (void)shareMyFile
+- (void)shareMyFile:(NSInteger)selectedElement
 {
-    //Drive
-    if (!self.service.authorizer.canAuthorize)
+    switch (selectedElement)
     {
-        [self presentViewController:[self createAuthController]
-                           animated:YES
-                         completion:nil];
+        case 0:
+            //Dropbox
+            if (![[DBSession sharedSession] isLinked])
+            {
+                viewName = kViewName;
+                [[DBSession sharedSession] linkFromController:self];
+            }
+            else
+            {
+                //Uptade the file to Dropbox...
+                [self uploadFileToDropBox];
+            }
+            break;
+            
+        case 1:
+            //Drive
+            if (!self.service.authorizer.canAuthorize)
+            {
+                [self presentViewController:[self createAuthController]
+                                   animated:YES
+                                 completion:nil];
+            }
+            else
+            {
+                [self uploadFileToGoogleDrive];
+            }
+            break;
+            
+            /*
+        case 2:
+            //iCloud
+            
+            break;
+             */
+
+        default:
+        break;
     }
-    else
-    {
-        [self uploadFileToGoogleDrive];
-    }
-    
-    
-    /*
-    //Dropbox
-    if (![[DBSession sharedSession] isLinked])
-    {
-        viewName = kViewName;
-        [[DBSession sharedSession] linkFromController:self];
-    }
-    else
-    {
-        //Uptade the file to Dropbox...
-        [self uploadFileToDropBox];
-    }
-     */
 }
 
 - (NSString *)temporaryDirectory
@@ -214,6 +235,7 @@
     else {
         self.service.authorizer = authResult;
         [self dismissViewControllerAnimated:YES completion:nil];
+        [self uploadFileToGoogleDrive];
     }
 }
 
@@ -266,21 +288,56 @@
 {
     //Creating folder
     GTLDriveFile *folder = [GTLDriveFile object];
-    folder.title = @"unzipFiles";
-    folder.mimeType = @"application/vnd.google-apps.folder";
+    folder.title = kFolderTitle;
+    folder.mimeType = kFolderMimeType;
     
     GTLQueryDrive *query = [GTLQueryDrive queryForFilesInsertWithObject:folder
                                                        uploadParameters:nil];
     
     [self.service executeQuery:query completionHandler:^(GTLServiceTicket *ticket,
                                                          GTLDriveFile *updatedFile,
-                                                         NSError *error) {
-        if (error == nil) {
-            NSLog(@"Created folder");
-        } else {
-            NSLog(@"An error occurred: %@", error);
-        }
-    }];
+                                                         NSError *error)
+                                                        {
+                                                            if (error == nil)
+                                                            {
+                                                                NSLog(@"Created folder");
+                                                            }
+                                                            else
+                                                            {
+                                                                NSLog(@"An error occurred: %@", error);
+                                                            }
+                                                        }];
+}
+
+#pragma mark - Pop Menu Implementation
+- (void)showPopMenu
+{
+    NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:3];
+    MenuItem *menuItem = [[MenuItem alloc] initWithTitle:kDropbox iconName:@"dropboxIcon" glowColor:[UIColor whiteColor] index:0];
+    [items addObject:menuItem];
+    
+    menuItem = [[MenuItem alloc] initWithTitle:kGoogleDrive iconName:@"driveIcon" glowColor:[UIColor whiteColor] index:1];
+    [items addObject:menuItem];
+    
+    menuItem = [[MenuItem alloc] initWithTitle:kiCloud iconName:@"cloudIcon" glowColor:[UIColor whiteColor] index:2];
+    [items addObject:menuItem];
+    
+    if (!self.popMenu)
+    {
+        self.popMenu = [[PopMenu alloc] initWithFrame:self.view.bounds items:items];
+    }
+    
+    if (self.popMenu.isShowed)
+    {
+        return;
+    }
+    
+    __block UnzipFilesDetailViewController *safeViewController = self;
+    self.popMenu.didSelectedItemCompletion = ^(MenuItem *selectedItem)
+                                                {
+                                                    [safeViewController shareMyFile:selectedItem.index];
+                                                };
+    [self.popMenu showMenuAtView:self.view];
 }
 
 @end
