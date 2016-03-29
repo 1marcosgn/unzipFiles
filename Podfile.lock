@@ -169,11 +169,17 @@ PODS:
   - gtm-http-fetcher (1.0.141)
   - gtm-oauth2 (1.0.126):
     - gtm-http-fetcher (~> 1.0.141)
+  - pop (1.0.9)
+  - PopMenu (2.4):
+    - pop
+    - XHRealTimeBlur
   - UnzipKit (1.6.2)
+  - XHRealTimeBlur (1.7)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - Google-API-Client
+  - PopMenu
   - UnzipKit (~> 1.6)
 
 SPEC CHECKSUMS:
@@ -181,6 +187,9 @@ SPEC CHECKSUMS:
   Google-API-Client: cb712cf122f1d7fda966de4c2bc551324573366c
   gtm-http-fetcher: 6d4617e7d343b6e4c082b777541c334eb6f5d81e
   gtm-oauth2: 2a18b824e4f8a02df6cfe987beb59ae9d9697f9d
+  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  PopMenu: 26b97baeaf250070f4f61b93727ca86d127d7bc5
   UnzipKit: 0ba0a039e162e6dba98b5c53c6edc9aef081b69c
+  XHRealTimeBlur: 661fadd5691ba2d349758e8fd5fbdb499ac55f8c
 
 COCOAPODS: 0.39.0
