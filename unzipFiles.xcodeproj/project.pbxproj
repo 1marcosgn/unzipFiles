@@ -22,6 +22,7 @@
 		7FB1C2E51C5EED9D0093FE7B /* UnzipFilesDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FB1C2E31C5EED9D0093FE7B /* UnzipFilesDetailViewController.xib */; };
 		7FB1C2E91C5F1A7B0093FE7B /* ArchiveFiles.zip in Resources */ = {isa = PBXBuildFile; fileRef = 7FB1C2E81C5F1A7B0093FE7B /* ArchiveFiles.zip */; };
 		7FB1C2ED1C5F2C670093FE7B /* MIMETypes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FB1C2EC1C5F2C670093FE7B /* MIMETypes.plist */; };
+		7FC25A171CAC985500E363B9 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC25A161CAC985500E363B9 /* Constants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,9 @@
 		7FB1C2E31C5EED9D0093FE7B /* UnzipFilesDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnzipFilesDetailViewController.xib; sourceTree = "<group>"; };
 		7FB1C2E81C5F1A7B0093FE7B /* ArchiveFiles.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = ArchiveFiles.zip; sourceTree = "<group>"; };
 		7FB1C2EC1C5F2C670093FE7B /* MIMETypes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MIMETypes.plist; sourceTree = "<group>"; };
+		7FC25A131CAC97D900E363B9 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		7FC25A151CAC985500E363B9 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		7FC25A161CAC985500E363B9 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		892C9B2DED8BF4E65BC19CAE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		92DBAED8BDC0DEB20AEBE9F7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				7FB1C2B51C5DEF270093FE7B /* main.m */,
+				7FC25A131CAC97D900E363B9 /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -127,10 +132,20 @@
 		7FB1C2D41C5DF4C10093FE7B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7FC25A141CAC984700E363B9 /* Constants */,
 				7FB1C2E81C5F1A7B0093FE7B /* ArchiveFiles.zip */,
 				7FB1C2EC1C5F2C670093FE7B /* MIMETypes.plist */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		7FC25A141CAC984700E363B9 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				7FC25A151CAC985500E363B9 /* Constants.h */,
+				7FC25A161CAC985500E363B9 /* Constants.m */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		9185F1108F9E906A60561805 /* Frameworks */ = {
@@ -282,6 +297,7 @@
 				7FB1C2E41C5EED9D0093FE7B /* UnzipFilesDetailViewController.m in Sources */,
 				7FB1C2DF1C5EE8A30093FE7B /* UnzipFilesTableViewCell.m in Sources */,
 				7FB1C2DB1C5EE3640093FE7B /* UnzipFilesTableViewController.m in Sources */,
+				7FC25A171CAC985500E363B9 /* Constants.m in Sources */,
 				7FB1C2B61C5DEF270093FE7B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -392,6 +408,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/unzipFiles/DropboxFramework",
 				);
+				GCC_PREFIX_HEADER = unzipFiles/PrefixHeader.pch;
 				INFOPLIST_FILE = unzipFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -412,6 +429,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/unzipFiles/DropboxFramework",
 				);
+				GCC_PREFIX_HEADER = unzipFiles/PrefixHeader.pch;
 				INFOPLIST_FILE = unzipFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

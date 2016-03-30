@@ -1,0 +1,13 @@
+//
+//  PrefixHeader.pch
+//  unzipFiles
+//
+//  Created by marcosgn1 on 3/30/16.
+//  Copyright © 2016 marcosgn1. All rights reserved.
+//
+
+#ifdef __OBJC__
+
+#import "Constants.h"
+
+#endif
