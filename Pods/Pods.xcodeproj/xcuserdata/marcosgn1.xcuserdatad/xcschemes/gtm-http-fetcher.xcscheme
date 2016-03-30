@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '4C3DEAA209C6A9C6F2DBE36F'
+               BlueprintIdentifier = '0C1971AC4FCF905EAC305C45'
                BlueprintName = 'gtm-http-fetcher'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libgtm-http-fetcher.a'>

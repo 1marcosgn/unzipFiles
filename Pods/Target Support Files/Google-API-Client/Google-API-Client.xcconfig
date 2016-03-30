@@ -1,4 +1,4 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/Google-API-Client" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/Google-API-Client" "${PODS_ROOT}/Headers/Public/PopMenu" "${PODS_ROOT}/Headers/Public/UnzipKit" "${PODS_ROOT}/Headers/Public/XHRealTimeBlur" "${PODS_ROOT}/Headers/Public/gtm-http-fetcher" "${PODS_ROOT}/Headers/Public/gtm-oauth2" "${PODS_ROOT}/Headers/Public/pop"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/Google-API-Client" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/ADALiOS" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/Google-API-Client" "${PODS_ROOT}/Headers/Public/OneDriveSDK" "${PODS_ROOT}/Headers/Public/PopMenu" "${PODS_ROOT}/Headers/Public/UnzipKit" "${PODS_ROOT}/Headers/Public/XHRealTimeBlur" "${PODS_ROOT}/Headers/Public/gtm-http-fetcher" "${PODS_ROOT}/Headers/Public/gtm-oauth2" "${PODS_ROOT}/Headers/Public/pop"
 PODS_ROOT = ${SRCROOT}
 SKIP_INSTALL = YES

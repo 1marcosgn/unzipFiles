@@ -12,6 +12,14 @@
 #import "GTLDrive.h"
 #import "MenuItem.h"
 #import "PopMenu.h"
+#import "ODClient+DefaultConfiguration.h"
+#import "ODItemContentRequest.h"
+
+#import "ODClient.h"
+
+#import "ODDriveRequestBuilder.h"
+#import "ODDrive.h"
+#import "ODClient+HelperMethods.h"
 
 @interface UnzipFilesDetailViewController : UIViewController <DBRestClientDelegate>
 {
@@ -27,5 +35,8 @@
 
 //Drive
 @property (nonatomic, strong) GTLServiceDrive *service;
+
+//OpenDrive
+@property (nonatomic, strong) ODClient *odClient;
 
 @end

@@ -21,7 +21,12 @@
 #define kFolderMimeType       @"application/vnd.google-apps.folder"
 #define kDropbox              @"Dropbox"
 #define kGoogleDrive          @"Google Drive"
-#define kiCloud               @"iCloud"
+#define kOneDrive             @"OneDrive"
+#define kOneDriveAppId        @"000000004818FA51"
+#define kODSigninScope        @"wl.signin"
+#define kODOfflineScope       @"wl.offline_access"
+#define kODReadWriteScope     @"onedrive.readwrite"
+#define kODAppRoot            @"approot"
 
 @interface UnzipFilesDetailViewController ()
 {
@@ -63,7 +68,7 @@
     //::
     
     //Initialize the Drive API service & load existing credentials from the keychain if available.
-    self.service = [[GTLServiceDrive alloc]init];
+    self.service = [[GTLServiceDrive alloc] init];
     self.service.authorizer = [GTMOAuth2ViewControllerTouch authForGoogleFromKeychainForName:kKeychainItemName
                                                                                     clientID:kClientID
                                                                                 clientSecret:nil];
@@ -82,7 +87,6 @@
                          baseURL:[NSURL URLWithString:@""]];
 }
 
-//TODO: Detail screen will have the ability to share that document.. dropbox , etc, etc.. (for free)
 - (void)shareMyFile:(NSInteger)selectedElement
 {
     switch (selectedElement)
@@ -96,13 +100,12 @@
             }
             else
             {
-                //Uptade the file to Dropbox...
                 [self uploadFileToDropBox];
             }
             break;
             
         case 1:
-            //Drive
+            //Google Drive
             if (!self.service.authorizer.canAuthorize)
             {
                 [self presentViewController:[self createAuthController]
@@ -115,13 +118,11 @@
             }
             break;
             
-            /*
         case 2:
-            //iCloud
-            
+            //Open Drive
+            [self uploadFileToOpenDrive];
             break;
-             */
-
+            
         default:
         break;
     }
@@ -150,14 +151,47 @@
     return fileURLString;
 }
 
-//Remove temporal file after upload
 - (void)cleaningUp
 {
     NSError *error = nil;
     [[NSFileManager defaultManager] removeItemAtURL:fileURL error:&error];
 }
 
+#pragma mark - Pop Menu Implementation
+
+- (void)showPopMenu
+{
+    NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:3];
+    MenuItem *menuItem = [[MenuItem alloc] initWithTitle:kDropbox iconName:@"dropboxIcon" glowColor:[UIColor whiteColor] index:0];
+    [items addObject:menuItem];
+    
+    menuItem = [[MenuItem alloc] initWithTitle:kGoogleDrive iconName:@"driveIcon" glowColor:[UIColor whiteColor] index:1];
+    [items addObject:menuItem];
+    
+    menuItem = [[MenuItem alloc] initWithTitle:kOneDrive iconName:@"oneDrive" glowColor:[UIColor whiteColor] index:2];
+    [items addObject:menuItem];
+    
+    if (!self.popMenu)
+    {
+        self.popMenu = [[PopMenu alloc] initWithFrame:self.view.bounds items:items];
+    }
+    
+    if (self.popMenu.isShowed)
+    {
+        return;
+    }
+    
+    __block UnzipFilesDetailViewController *safeViewController = self;
+    self.popMenu.didSelectedItemCompletion = ^(MenuItem *selectedItem)
+    {
+        [safeViewController shareMyFile:selectedItem.index];
+    };
+    
+    [self.popMenu showMenuAtView:self.view];
+}
+
 #pragma mark - Dropbox Methods
+
 - (DBRestClient *)restClient
 {
     if (restClient == nil)
@@ -168,8 +202,7 @@
     return restClient;
 }
 
-//User logged in successfully
--(void)dropboxLoginDone
+- (void)dropboxLoginDone
 {
     [self uploadFileToDropBox];
 }
@@ -185,15 +218,13 @@
                        fromPath:[self temporaryDirectory]];
 }
 
--(void)fetchAllDropboxData
+- (void)fetchAllDropboxData
 {
     [self.restClient loadMetadata:loadData];
 }
 
-- (void)restClient:(DBRestClient *)client uploadedFile:(NSString *)destPath
-              from:(NSString *)srcPath metadata:(DBMetadata *)metadata
+- (void)restClient:(DBRestClient *)client uploadedFile:(NSString *)destPath from:(NSString *)srcPath metadata:(DBMetadata *)metadata
 {
-    //File uploaded successfully to path: metadata.path
     [self cleaningUp];
 }
 
@@ -207,7 +238,8 @@
     [[DBSession sharedSession]unlinkAll];
 }
 
-#pragma mark - Drive Methods
+#pragma mark - Google Drive Methods
+
 - (GTMOAuth2ViewControllerTouch *)createAuthController
 {
     GTMOAuth2ViewControllerTouch *authController;
@@ -225,7 +257,6 @@
     return authController;
 }
 
-
 - (void)viewController:(GTMOAuth2ViewControllerTouch *)viewController finishedWithAuth:(GTMOAuth2Authentication *)authResult error:(NSError *)error
 {
     if (error != nil) {
@@ -239,7 +270,6 @@
     }
 }
 
-//TODO: Helper for showing an alert
 - (void)showAlert:(NSString *)title message:(NSString *)message
 {
     NSLog(@"%@, %@", title, message);
@@ -284,60 +314,42 @@
     }
 }
 
-- (void)creatingFolder
-{
-    //Creating folder
-    GTLDriveFile *folder = [GTLDriveFile object];
-    folder.title = kFolderTitle;
-    folder.mimeType = kFolderMimeType;
-    
-    GTLQueryDrive *query = [GTLQueryDrive queryForFilesInsertWithObject:folder
-                                                       uploadParameters:nil];
-    
-    [self.service executeQuery:query completionHandler:^(GTLServiceTicket *ticket,
-                                                         GTLDriveFile *updatedFile,
-                                                         NSError *error)
-                                                        {
-                                                            if (error == nil)
-                                                            {
-                                                                NSLog(@"Created folder");
-                                                            }
-                                                            else
-                                                            {
-                                                                NSLog(@"An error occurred: %@", error);
-                                                            }
-                                                        }];
-}
+#pragma mark - OpenDrive Methods
 
-#pragma mark - Pop Menu Implementation
-- (void)showPopMenu
+- (void)uploadFileToOpenDrive
 {
-    NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:3];
-    MenuItem *menuItem = [[MenuItem alloc] initWithTitle:kDropbox iconName:@"dropboxIcon" glowColor:[UIColor whiteColor] index:0];
-    [items addObject:menuItem];
+    self.odClient = [[ODClient alloc] init];
     
-    menuItem = [[MenuItem alloc] initWithTitle:kGoogleDrive iconName:@"driveIcon" glowColor:[UIColor whiteColor] index:1];
-    [items addObject:menuItem];
+    NSArray *scopes = [NSArray arrayWithObjects:kODSigninScope, kODOfflineScope, kODReadWriteScope,  nil];
     
-    menuItem = [[MenuItem alloc] initWithTitle:kiCloud iconName:@"cloudIcon" glowColor:[UIColor whiteColor] index:2];
-    [items addObject:menuItem];
+    [ODClient setMicrosoftAccountAppId:kOneDriveAppId scopes:scopes];
     
-    if (!self.popMenu)
-    {
-        self.popMenu = [[PopMenu alloc] initWithFrame:self.view.bounds items:items];
-    }
-    
-    if (self.popMenu.isShowed)
-    {
-        return;
-    }
-    
-    __block UnzipFilesDetailViewController *safeViewController = self;
-    self.popMenu.didSelectedItemCompletion = ^(MenuItem *selectedItem)
-                                                {
-                                                    [safeViewController shareMyFile:selectedItem.index];
-                                                };
-    [self.popMenu showMenuAtView:self.view];
+    [ODClient clientWithCompletion:^(ODClient *client, NSError *error)
+     {
+         if (!error)
+         {
+             self.odClient = client;
+             
+             NSString *path = [self temporaryDirectory];
+             
+             [[[[[[self.odClient drive] special:kODAppRoot]
+                                     itemByPath:unzipedFileData[kfileName]] contentRequest]
+                                   nameConflict:[ODNameConflict replace] ]
+                                 uploadFromFile:[NSURL fileURLWithPath:path]
+                                     completion:^(ODItem *response, NSError *error)
+                                                    {
+                                                        if (error == nil)
+                                                        {
+                                                            NSLog(@"Success!!");
+                                                        }
+                                                        else
+                                                        {
+                                                            NSLog(@"one drive upload:%@", error);
+                                                        }
+                                                    }
+             ];
+         }
+     }];
 }
 
 @end

@@ -4,12 +4,22 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ADALiOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>AFNetworking.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Google-API-Client.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>OneDriveSDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -57,7 +67,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2484E77A192DCE5742FBAA4899219504</key>
+		<key>1AF80C497F139BB72BF8875FE8EED29E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2754257B9ACB5A981D065CB6753E2BC9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,17 +82,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4DB09DF9C59FCDF9613CA351443D5886</key>
+		<key>3EB30D22BEB62FED43C8FC5B293D9925</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>782B27EC3D092BF8A52A7EF05A69C314</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8229E896FDAF25B7F9E6EFA9ECBE6788</key>
+		<key>926763F12925F81033EADE1F50FFD814</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,7 +102,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B3BF692A02408ABB106EA71ABEC3AC4F</key>
+		<key>A2665F429AADFA3061F4AE804A62ECF8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CD7234A0C91EA18167BF8D35B15079C1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DF94D3B2F43AE0534FFED9CE4804DDBF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

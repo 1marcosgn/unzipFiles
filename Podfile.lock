@@ -1,4 +1,5 @@
 PODS:
+  - ADALiOS (1.2.5.1)
   - AFNetworking (3.0.4):
     - AFNetworking/NSURLSession (= 3.0.4)
     - AFNetworking/Reachability (= 3.0.4)
@@ -169,6 +170,24 @@ PODS:
   - gtm-http-fetcher (1.0.141)
   - gtm-oauth2 (1.0.126):
     - gtm-http-fetcher (~> 1.0.141)
+  - OneDriveSDK (1.1.2):
+    - OneDriveSDK/Auth (= 1.1.2)
+    - OneDriveSDK/Common (= 1.1.2)
+    - OneDriveSDK/Extensions (= 1.1.2)
+    - OneDriveSDK/Implementations (= 1.1.2)
+    - OneDriveSDK/OneDriveCoreSDK (= 1.1.2)
+  - OneDriveSDK/Auth (1.1.2):
+    - ADALiOS (~> 1.2.4)
+    - OneDriveSDK/Common
+  - OneDriveSDK/Common (1.1.2)
+  - OneDriveSDK/Extensions (1.1.2):
+    - OneDriveSDK/Auth
+    - OneDriveSDK/Implementations
+    - OneDriveSDK/OneDriveCoreSDK
+  - OneDriveSDK/Implementations (1.1.2):
+    - OneDriveSDK/Common
+  - OneDriveSDK/OneDriveCoreSDK (1.1.2):
+    - OneDriveSDK/Common
   - pop (1.0.9)
   - PopMenu (2.4):
     - pop
@@ -179,14 +198,17 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - Google-API-Client
+  - OneDriveSDK (~> 1.1)
   - PopMenu
   - UnzipKit (~> 1.6)
 
 SPEC CHECKSUMS:
+  ADALiOS: c478014b5fb25735456699182842f062d5098ff4
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
   Google-API-Client: cb712cf122f1d7fda966de4c2bc551324573366c
   gtm-http-fetcher: 6d4617e7d343b6e4c082b777541c334eb6f5d81e
   gtm-oauth2: 2a18b824e4f8a02df6cfe987beb59ae9d9697f9d
+  OneDriveSDK: 2ba8787756deef12e787ee5dae6cb60e9dc7a6a9
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   PopMenu: 26b97baeaf250070f4f61b93727ca86d127d7bc5
   UnzipKit: 0ba0a039e162e6dba98b5c53c6edc9aef081b69c
