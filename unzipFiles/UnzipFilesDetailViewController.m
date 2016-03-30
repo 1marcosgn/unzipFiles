@@ -8,26 +8,6 @@
 
 #import "UnzipFilesDetailViewController.h"
 
-#define kObserverOpenDropBox  @"OPEN_DROPBOX_VIEW"
-#define kData                 @"data"
-#define kfileName             @"fileName"
-#define kMIMEType             @"MIMEType"
-#define kEncoding             @"utf-8"
-#define kViewName             @"OpenUploadFileView"
-#define kdestinationPath      @"/unzipFiles"
-#define kKeychainItemName     @"Drive API"
-#define kClientID             @"536472992283-tdmpthrig9mt3gnq7qlbperp7l2sg2tk.apps.googleusercontent.com"
-#define kFolderTitle          @"unzipFiles"
-#define kFolderMimeType       @"application/vnd.google-apps.folder"
-#define kDropbox              @"Dropbox"
-#define kGoogleDrive          @"Google Drive"
-#define kOneDrive             @"OneDrive"
-#define kOneDriveAppId        @"000000004818FA51"
-#define kODSigninScope        @"wl.signin"
-#define kODOfflineScope       @"wl.offline_access"
-#define kODReadWriteScope     @"onedrive.readwrite"
-#define kODAppRoot            @"approot"
-
 @interface UnzipFilesDetailViewController ()
 {
     NSURL *fileURL;
