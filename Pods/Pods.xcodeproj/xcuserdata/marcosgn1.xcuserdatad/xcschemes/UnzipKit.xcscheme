@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '77E0E4C3F66E225FA8C721D4'
+               BlueprintIdentifier = 'E1D7B4A5734012A6D041016D'
                BlueprintName = 'UnzipKit'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libUnzipKit.a'>

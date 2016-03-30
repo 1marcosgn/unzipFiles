@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '547C05D45682512BD4A450E6'
+               BlueprintIdentifier = '72354F1E7CEB530D067149D5'
                BlueprintName = 'gtm-oauth2'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libgtm-oauth2.a'>
