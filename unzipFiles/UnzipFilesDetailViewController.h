@@ -8,25 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "UnzipFileUtils.h"
+#import "OpenDrive.h"
 
 #import <DropboxSDK/DropboxSDK.h>
 #import "GTMOAuth2ViewControllerTouch.h"
 #import "GTLDrive.h"
 #import "MenuItem.h"
 #import "PopMenu.h"
-#import "ODClient+DefaultConfiguration.h"
-#import "ODItemContentRequest.h"
-
-#import "ODClient.h"
-
-#import "ODDriveRequestBuilder.h"
-#import "ODDrive.h"
-#import "ODClient+HelperMethods.h"
 
 @interface UnzipFilesDetailViewController : UIViewController <DBRestClientDelegate>
 {
-    NSString *viewName;
+    NSString  *viewName;
     DBRestClient *restClient;
+    OpenDrive *openDriveObj;
 }
 
 @property (weak, nonatomic) IBOutlet UIWebView *detailWebView;
@@ -39,6 +33,6 @@
 @property (nonatomic, strong) GTLServiceDrive *service;
 
 //OpenDrive
-@property (nonatomic, strong) ODClient *odClient;
+@property (nonatomic, readonly) OpenDrive *openDriveObj;
 
 @end

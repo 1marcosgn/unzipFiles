@@ -100,7 +100,8 @@
             
         case 2:
             //Open Drive
-            [self uploadFileToOpenDrive];
+            [self.openDriveObj uploadFileToOpenDrive:unzipedFileData
+                                             fileURL:fileURL];
             break;
             
         default:
@@ -265,42 +266,16 @@
     }
 }
 
-#pragma mark - OpenDrive Methods
 
-- (void)uploadFileToOpenDrive
+#pragma mark - Initializers 
+
+- (OpenDrive *)openDriveObj
 {
-    self.odClient = [[ODClient alloc] init];
-    
-    NSArray *scopes = [NSArray arrayWithObjects:kODSigninScope, kODOfflineScope, kODReadWriteScope,  nil];
-    
-    [ODClient setMicrosoftAccountAppId:kOneDriveAppId scopes:scopes];
-    
-    [ODClient clientWithCompletion:^(ODClient *client, NSError *error)
-     {
-         if (!error)
-         {
-             self.odClient = client;
-             
-             NSString *path = [UnzipFileUtils temporaryDirectory:unzipedFileData fileURL:fileURL];
-             
-             [[[[[[self.odClient drive] special:kODAppRoot]
-                                     itemByPath:unzipedFileData[kfileName]] contentRequest]
-                                   nameConflict:[ODNameConflict replace] ]
-                                 uploadFromFile:[NSURL fileURLWithPath:path]
-                                     completion:^(ODItem *response, NSError *error)
-                                                    {
-                                                        if (error == nil)
-                                                        {
-                                                            NSLog(@"Success!!");
-                                                        }
-                                                        else
-                                                        {
-                                                            NSLog(@"one drive upload:%@", error);
-                                                        }
-                                                    }
-             ];
-         }
-     }];
+    if (openDriveObj == nil)
+    {
+        openDriveObj = [[OpenDrive alloc]init];
+    }
+    return openDriveObj;
 }
 
 @end
