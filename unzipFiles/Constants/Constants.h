@@ -29,5 +29,13 @@ extern NSString * const kODSigninScope;
 extern NSString * const kODOfflineScope;
 extern NSString * const kODReadWriteScope;
 extern NSString * const kODAppRoot;
+extern NSString * const kNotificationName;
+extern NSString * const kUINibCellName;
+extern NSString * const kReusableIdentifier;
+extern NSString * const kFileName;
+extern NSString * const kMACOSXFiles;
+extern NSString * const kMIMETypes;
+extern NSString * const kData;
+extern NSString * const kMIMEType;
 
 @end

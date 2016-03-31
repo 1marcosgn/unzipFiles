@@ -29,5 +29,11 @@ NSString * const kODSigninScope       =  @"wl.signin";
 NSString * const kODOfflineScope      =  @"wl.offline_access";
 NSString * const kODReadWriteScope    =  @"onedrive.readwrite";
 NSString * const kODAppRoot           =  @"approot";
+NSString * const kNotificationName    =  @"AppOpeningZipFileNotification";
+NSString * const kUINibCellName       =  @"UnzipFilesTableViewCell";
+NSString * const kReusableIdentifier  =  @"cellZipFile";
+NSString * const kFileName            =  @"fileName";
+NSString * const kMACOSXFiles         =  @"__MACOSX";
+NSString * const kMIMETypes           =  @"MIMETypes";
 
 @end
