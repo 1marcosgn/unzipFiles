@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "UnzipFileUtils.h"
 #import "OpenDrive.h"
+#import "GoogleDrive.h"
 
 #import <DropboxSDK/DropboxSDK.h>
-#import "GTMOAuth2ViewControllerTouch.h"
-#import "GTLDrive.h"
+
 #import "MenuItem.h"
 #import "PopMenu.h"
 
@@ -20,19 +20,22 @@
 {
     NSString  *viewName;
     DBRestClient *restClient;
+    
     OpenDrive *openDriveObj;
+    GoogleDrive *googleDriveObj;
 }
 
 @property (weak, nonatomic) IBOutlet UIWebView *detailWebView;
 @property (nonatomic, assign) NSDictionary *unzipedFileData;
 @property (nonatomic, assign) NSString *unzipedFileExtesion;
+
 @property (nonatomic, readonly) DBRestClient *restClient;
 @property (nonatomic, strong) NSString *loadData;
 
-//Drive
-@property (nonatomic, strong) GTLServiceDrive *service;
-
 //OpenDrive
 @property (nonatomic, readonly) OpenDrive *openDriveObj;
+
+//Google Drive
+@property (nonatomic, readonly) GoogleDrive *googleDriveObj;
 
 @end
