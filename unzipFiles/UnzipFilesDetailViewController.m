@@ -108,35 +108,6 @@
     }
 }
 
-- (NSString *)temporaryDirectory
-{
-    //Generating a Unique Directory or File Name
-    NSString *fileName = unzipedFileData[kfileName];
-    fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
-    
-    //Creating a Temporary Directory
-    NSURL *directoryURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:[[NSProcessInfo processInfo] globallyUniqueString]] isDirectory:YES];
-    
-    NSError *error = nil;
-    [[NSFileManager defaultManager] createDirectoryAtURL:directoryURL withIntermediateDirectories:YES attributes:nil error:&error];
-    
-    fileURL = [directoryURL URLByAppendingPathComponent:fileName];
-    
-    NSData *data = unzipedFileData[kData];
-    
-    [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
-    
-    NSString *fileURLString = [fileURL path];
-    
-    return fileURLString;
-}
-
-- (void)cleaningUp
-{
-    NSError *error = nil;
-    [[NSFileManager defaultManager] removeItemAtURL:fileURL error:&error];
-}
-
 #pragma mark - Pop Menu Implementation
 
 - (void)showPopMenu
@@ -195,7 +166,7 @@
     [self.restClient uploadFile:fileName
                          toPath:destinationPath
                   withParentRev:nil
-                       fromPath:[self temporaryDirectory]];
+                       fromPath:[UnzipFileUtils temporaryDirectory:unzipedFileData fileURL:fileURL]];
 }
 
 - (void)fetchAllDropboxData
@@ -205,7 +176,7 @@
 
 - (void)restClient:(DBRestClient *)client uploadedFile:(NSString *)destPath from:(NSString *)srcPath metadata:(DBMetadata *)metadata
 {
-    [self cleaningUp];
+    [UnzipFileUtils cleaningUp:fileURL];
 }
 
 - (void)restClient:(DBRestClient *)client uploadFileFailedWithError:(NSError *)error
@@ -257,7 +228,7 @@
 
 - (void)uploadFileToGoogleDrive
 {
-    NSFileHandle *fileHandle = [NSFileHandle fileHandleForReadingAtPath:[self temporaryDirectory]];
+    NSFileHandle *fileHandle = [NSFileHandle fileHandleForReadingAtPath:[UnzipFileUtils temporaryDirectory:unzipedFileData fileURL:fileURL]];
     
     if (fileHandle)
     {
@@ -310,7 +281,7 @@
          {
              self.odClient = client;
              
-             NSString *path = [self temporaryDirectory];
+             NSString *path = [UnzipFileUtils temporaryDirectory:unzipedFileData fileURL:fileURL];
              
              [[[[[[self.odClient drive] special:kODAppRoot]
                                      itemByPath:unzipedFileData[kfileName]] contentRequest]

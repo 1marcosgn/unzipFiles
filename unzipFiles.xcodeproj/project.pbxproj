@@ -23,6 +23,7 @@
 		7FB1C2E91C5F1A7B0093FE7B /* ArchiveFiles.zip in Resources */ = {isa = PBXBuildFile; fileRef = 7FB1C2E81C5F1A7B0093FE7B /* ArchiveFiles.zip */; };
 		7FB1C2ED1C5F2C670093FE7B /* MIMETypes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FB1C2EC1C5F2C670093FE7B /* MIMETypes.plist */; };
 		7FC25A171CAC985500E363B9 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC25A161CAC985500E363B9 /* Constants.m */; };
+		7FC25A1B1CACD03000E363B9 /* UnzipFileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC25A1A1CACD03000E363B9 /* UnzipFileUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,8 @@
 		7FC25A131CAC97D900E363B9 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		7FC25A151CAC985500E363B9 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		7FC25A161CAC985500E363B9 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		7FC25A191CACD03000E363B9 /* UnzipFileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnzipFileUtils.h; sourceTree = "<group>"; };
+		7FC25A1A1CACD03000E363B9 /* UnzipFileUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnzipFileUtils.m; sourceTree = "<group>"; };
 		892C9B2DED8BF4E65BC19CAE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		92DBAED8BDC0DEB20AEBE9F7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +102,7 @@
 		7FB1C2B31C5DEF270093FE7B /* unzipFiles */ = {
 			isa = PBXGroup;
 			children = (
+				7FC25A181CACCC6E00E363B9 /* Classes */,
 				7FB1C2D41C5DF4C10093FE7B /* Resources */,
 				7FB1C2B71C5DEF270093FE7B /* AppDelegate.h */,
 				7FB1C2B81C5DEF270093FE7B /* AppDelegate.m */,
@@ -146,6 +150,15 @@
 				7FC25A161CAC985500E363B9 /* Constants.m */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		7FC25A181CACCC6E00E363B9 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7FC25A191CACD03000E363B9 /* UnzipFileUtils.h */,
+				7FC25A1A1CACD03000E363B9 /* UnzipFileUtils.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		9185F1108F9E906A60561805 /* Frameworks */ = {
@@ -294,6 +307,7 @@
 			files = (
 				7FB1C2BC1C5DEF270093FE7B /* ViewController.m in Sources */,
 				7FB1C2B91C5DEF270093FE7B /* AppDelegate.m in Sources */,
+				7FC25A1B1CACD03000E363B9 /* UnzipFileUtils.m in Sources */,
 				7FB1C2E41C5EED9D0093FE7B /* UnzipFilesDetailViewController.m in Sources */,
 				7FB1C2DF1C5EE8A30093FE7B /* UnzipFilesTableViewCell.m in Sources */,
 				7FB1C2DB1C5EE3640093FE7B /* UnzipFilesTableViewController.m in Sources */,

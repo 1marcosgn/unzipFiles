@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UnzipFileUtils.h"
+
 #import <DropboxSDK/DropboxSDK.h>
 #import "GTMOAuth2ViewControllerTouch.h"
 #import "GTLDrive.h"
