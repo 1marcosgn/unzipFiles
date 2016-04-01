@@ -15,6 +15,7 @@ PODS:
   - AFNetworking/Serialization (3.0.4)
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
+  - BALoadingView (0.1.1)
   - Google-API-Client (1.0.422):
     - Google-API-Client/AdSense (= 1.0.422)
     - Google-API-Client/Analytics (= 1.0.422)
@@ -197,6 +198,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
+  - BALoadingView (~> 0.1)
   - Google-API-Client
   - OneDriveSDK (~> 1.1)
   - PopMenu
@@ -205,6 +207,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   ADALiOS: c478014b5fb25735456699182842f062d5098ff4
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
+  BALoadingView: 181325648e67358b06dcedbc1cedfaeee35f8398
   Google-API-Client: cb712cf122f1d7fda966de4c2bc551324573366c
   gtm-http-fetcher: 6d4617e7d343b6e4c082b777541c334eb6f5d81e
   gtm-oauth2: 2a18b824e4f8a02df6cfe987beb59ae9d9697f9d

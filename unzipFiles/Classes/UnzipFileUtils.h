@@ -7,11 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BALoadingView.h"
 
 @interface UnzipFileUtils : NSObject
 
 + (NSString *)temporaryDirectory:(NSDictionary *)unzipedFileData fileURL:(NSURL *)fileURL;
 
 + (void)cleaningUp:(NSURL *)fileURL;
+
++ (void)startLoading:(UIView *)view;
+
++ (void)stopLoading;
 
 @end

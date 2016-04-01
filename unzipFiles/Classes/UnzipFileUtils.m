@@ -10,6 +10,13 @@
 
 @implementation UnzipFileUtils
 
+static BALoadingView *loadingView;
+
++ (void)initialize
+{
+    loadingView = [[BALoadingView alloc] init];
+}
+
 + (NSString *)temporaryDirectory:(NSDictionary *)unzipedFileData fileURL:(NSURL *)fileURL;
 {
     //Generating a Unique Directory or File Name
@@ -37,6 +44,23 @@
 {
     NSError *error = nil;
     [[NSFileManager defaultManager] removeItemAtURL:fileURL error:&error];
+}
+
++ (void)startLoading:(UIView *)view
+{
+    [loadingView setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, 160.0f, 160.0f)];
+    [loadingView setCenter:view.center];
+    [loadingView setSegmentColor:[UIColor orangeColor]];
+    [loadingView setClockwise:YES];
+    [loadingView initialize];
+    [loadingView startAnimation:BACircleAnimationFullCircle];
+    [view addSubview:loadingView];
+}
+
++ (void)stopLoading
+{
+    [loadingView stopAnimation];
+    [loadingView removeFromSuperview];
 }
 
 @end
