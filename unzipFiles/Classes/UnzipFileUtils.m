@@ -48,19 +48,37 @@ static BALoadingView *loadingView;
 
 + (void)startLoading:(UIView *)view
 {
+    BOOL addView = [self isLoadingInView];
+    
     [loadingView setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, 160.0f, 160.0f)];
-    [loadingView setCenter:view.center];
-    [loadingView setSegmentColor:[UIColor orangeColor]];
-    [loadingView setClockwise:YES];
-    [loadingView initialize];
-    [loadingView startAnimation:BACircleAnimationFullCircle];
-    [view addSubview:loadingView];
+    
+    if (!addView)
+    {
+        [loadingView setTag:100];
+        [loadingView setCenter:view.center];
+        [loadingView setSegmentColor:[UIColor orangeColor]];
+        [loadingView setClockwise:YES];
+        [loadingView initialize];
+        [loadingView startAnimation:BACircleAnimationFullCircle];
+        [view addSubview:loadingView];
+    }
 }
 
 + (void)stopLoading
 {
     [loadingView stopAnimation];
+    [self resetLoadingViewFrame];
     [loadingView removeFromSuperview];
+}
+
++ (BOOL)isLoadingInView
+{
+    return (loadingView.frame.origin.x == 0) ? NO : YES;
+}
+
++ (void)resetLoadingViewFrame
+{
+    [loadingView setFrame:CGRectMake(0.0f, 0.0f, 160.0f, 160.0f)];
 }
 
 @end

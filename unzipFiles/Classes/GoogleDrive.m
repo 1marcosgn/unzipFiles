@@ -86,7 +86,9 @@
                                         }
                                         else
                                         {
-                                            NSLog(@"File Uploaded");
+                                            dispatch_async(dispatch_get_main_queue(), ^{
+                                                [UnzipFileUtils stopLoading];
+                                            });
                                         }
                                     }];
         

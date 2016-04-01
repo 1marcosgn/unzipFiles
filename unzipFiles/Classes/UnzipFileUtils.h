@@ -19,4 +19,8 @@
 
 + (void)stopLoading;
 
++ (BOOL)isLoadingInView;
+
++ (void)resetLoadingViewFrame;
+
 @end

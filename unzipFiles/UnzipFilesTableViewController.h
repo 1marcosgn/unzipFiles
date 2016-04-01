@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UZKArchive.h"
+#import "UnzipFileUtils.h"
 
 @interface UnzipFilesTableViewController : UITableViewController
 
