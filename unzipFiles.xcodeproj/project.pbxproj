@@ -12,7 +12,6 @@
 		7F1F1C8C1CA5A8BB00D82411 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1F1C8B1CA5A8BB00D82411 /* Security.framework */; };
 		7FB1C2B61C5DEF270093FE7B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1C2B51C5DEF270093FE7B /* main.m */; };
 		7FB1C2B91C5DEF270093FE7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1C2B81C5DEF270093FE7B /* AppDelegate.m */; };
-		7FB1C2BC1C5DEF270093FE7B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1C2BB1C5DEF270093FE7B /* ViewController.m */; };
 		7FB1C2BF1C5DEF270093FE7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FB1C2BD1C5DEF270093FE7B /* Main.storyboard */; };
 		7FB1C2C11C5DEF270093FE7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FB1C2C01C5DEF270093FE7B /* Assets.xcassets */; };
 		7FB1C2DB1C5EE3640093FE7B /* UnzipFilesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1C2DA1C5EE3640093FE7B /* UnzipFilesTableViewController.m */; };
@@ -37,8 +36,6 @@
 		7FB1C2B51C5DEF270093FE7B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7FB1C2B71C5DEF270093FE7B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7FB1C2B81C5DEF270093FE7B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7FB1C2BA1C5DEF270093FE7B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7FB1C2BB1C5DEF270093FE7B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7FB1C2BE1C5DEF270093FE7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7FB1C2C01C5DEF270093FE7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7FB1C2C51C5DEF270093FE7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -115,8 +112,6 @@
 				7FB1C2D41C5DF4C10093FE7B /* Resources */,
 				7FB1C2B71C5DEF270093FE7B /* AppDelegate.h */,
 				7FB1C2B81C5DEF270093FE7B /* AppDelegate.m */,
-				7FB1C2BA1C5DEF270093FE7B /* ViewController.h */,
-				7FB1C2BB1C5DEF270093FE7B /* ViewController.m */,
 				7FB1C2BD1C5DEF270093FE7B /* Main.storyboard */,
 				7FB1C2C01C5DEF270093FE7B /* Assets.xcassets */,
 				7FB1C2C51C5DEF270093FE7B /* Info.plist */,
@@ -321,7 +316,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FB1C2BC1C5DEF270093FE7B /* ViewController.m in Sources */,
 				7FB1C2B91C5DEF270093FE7B /* AppDelegate.m in Sources */,
 				7FC25A361CAE0D9100E363B9 /* DropBox.m in Sources */,
 				7FC25A1B1CACD03000E363B9 /* UnzipFileUtils.m in Sources */,
