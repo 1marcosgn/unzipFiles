@@ -145,7 +145,6 @@
 		7FB1C2D41C5DF4C10093FE7B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				7FC25A141CAC984700E363B9 /* Constants */,
 				7FB1C2E81C5F1A7B0093FE7B /* ArchiveFiles.zip */,
 				7FB1C2EC1C5F2C670093FE7B /* MIMETypes.plist */,
 			);
@@ -158,7 +157,8 @@
 				7FC25A151CAC985500E363B9 /* Constants.h */,
 				7FC25A161CAC985500E363B9 /* Constants.m */,
 			);
-			path = Constants;
+			name = Constants;
+			path = ../Constants;
 			sourceTree = "<group>";
 		};
 		7FC25A181CACCC6E00E363B9 /* Classes */ = {
@@ -172,6 +172,7 @@
 				7FC25A201CAD9AEB00E363B9 /* GoogleDrive.m */,
 				7FC25A341CAE0D9100E363B9 /* DropBox.h */,
 				7FC25A351CAE0D9100E363B9 /* DropBox.m */,
+				7FC25A141CAC984700E363B9 /* Constants */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
