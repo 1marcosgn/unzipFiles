@@ -35,5 +35,8 @@ NSString * const kReusableIdentifier  =  @"cellZipFile";
 NSString * const kFileName            =  @"fileName";
 NSString * const kMACOSXFiles         =  @"__MACOSX";
 NSString * const kMIMETypes           =  @"MIMETypes";
+NSString * const kDropboxIcon         =  @"dropboxIcon";
+NSString * const kDriveIcon           =  @"driveIcon";
+NSString * const kOneDriveIcon        =  @"oneDrive";
 
 @end

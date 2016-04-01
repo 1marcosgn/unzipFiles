@@ -101,13 +101,13 @@
 - (void)showPopMenu
 {
     NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:3];
-    MenuItem *menuItem = [[MenuItem alloc] initWithTitle:kDropbox iconName:@"dropboxIcon" glowColor:[UIColor whiteColor] index:0];
+    MenuItem *menuItem = [[MenuItem alloc] initWithTitle:kDropbox iconName:kDropboxIcon glowColor:[UIColor whiteColor] index:0];
     [items addObject:menuItem];
     
-    menuItem = [[MenuItem alloc] initWithTitle:kGoogleDrive iconName:@"driveIcon" glowColor:[UIColor whiteColor] index:1];
+    menuItem = [[MenuItem alloc] initWithTitle:kGoogleDrive iconName:kDriveIcon glowColor:[UIColor whiteColor] index:1];
     [items addObject:menuItem];
     
-    menuItem = [[MenuItem alloc] initWithTitle:kOneDrive iconName:@"oneDrive" glowColor:[UIColor whiteColor] index:2];
+    menuItem = [[MenuItem alloc] initWithTitle:kOneDrive iconName:kOneDriveIcon glowColor:[UIColor whiteColor] index:2];
     [items addObject:menuItem];
     
     if (!self.popMenu)

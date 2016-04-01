@@ -37,5 +37,8 @@ extern NSString * const kMACOSXFiles;
 extern NSString * const kMIMETypes;
 extern NSString * const kData;
 extern NSString * const kMIMEType;
+extern NSString * const kDropboxIcon;
+extern NSString * const kDriveIcon;
+extern NSString * const kOneDriveIcon;
 
 @end
