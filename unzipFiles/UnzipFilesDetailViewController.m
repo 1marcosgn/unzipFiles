@@ -21,7 +21,6 @@
 
 @synthesize unzipedFileData;
 @synthesize unzipedFileExtesion;
-@synthesize loadData;
 
 - (void)viewDidLoad
 {
@@ -29,11 +28,6 @@
     
     self.detailWebView.scalesPageToFit = YES;
     [self displayInfoOnView];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(dropboxLoginDone)
-                                                 name:kObserverOpenDropBox
-                                               object:nil];
     
     //::
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithTitle:@"share"
@@ -66,14 +60,14 @@
     {
         case 0:
             //Dropbox
-            if (![[DBSession sharedSession] isLinked])
+            if (!self.dropBoxObj.isLinked)
             {
                 viewName = kViewName;
                 [[DBSession sharedSession] linkFromController:self];
             }
             else
             {
-                [self uploadFileToDropBox];
+                [self.dropBoxObj uploadFileToDropBox];
             }
             break;
             
@@ -135,56 +129,7 @@
     [self.popMenu showMenuAtView:self.view];
 }
 
-#pragma mark - Dropbox Methods
-
-- (DBRestClient *)restClient
-{
-    if (restClient == nil)
-    {
-        restClient = [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
-        restClient.delegate = self;
-    }
-    return restClient;
-}
-
-- (void)dropboxLoginDone
-{
-    [self uploadFileToDropBox];
-}
-
-- (void)uploadFileToDropBox
-{
-    NSString *destinationPath = kdestinationPath;
-    NSString *fileName = unzipedFileData[kfileName];
-    
-    [self.restClient uploadFile:fileName
-                         toPath:destinationPath
-                  withParentRev:nil
-                       fromPath:[UnzipFileUtils temporaryDirectory:unzipedFileData fileURL:fileURL]];
-}
-
-- (void)fetchAllDropboxData
-{
-    [self.restClient loadMetadata:loadData];
-}
-
-- (void)restClient:(DBRestClient *)client uploadedFile:(NSString *)destPath from:(NSString *)srcPath metadata:(DBMetadata *)metadata
-{
-    [UnzipFileUtils cleaningUp:fileURL];
-}
-
-- (void)restClient:(DBRestClient *)client uploadFileFailedWithError:(NSError *)error
-{
-    NSLog(@"File upload failed with error: %@", error);
-}
-
-- (void)dropboxLogOut
-{
-    [[DBSession sharedSession]unlinkAll];
-}
-
-
-#pragma mark - Initializers 
+#pragma mark - Initializers
 
 - (OpenDrive *)openDriveObj
 {
@@ -202,6 +147,15 @@
         googleDriveObj = [[GoogleDrive alloc] initWithObjects:unzipedFileData fileURL:fileURL];
     }
     return googleDriveObj;
+}
+
+- (DropBox *)dropBoxObj
+{
+    if (dropBoxObj == nil)
+    {
+        dropBoxObj = [[DropBox alloc] initWithObjects:unzipedFileData fileURL:fileURL];
+    }
+    return dropBoxObj;
 }
 
 @end

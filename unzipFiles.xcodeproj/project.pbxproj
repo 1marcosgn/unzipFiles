@@ -26,6 +26,7 @@
 		7FC25A1B1CACD03000E363B9 /* UnzipFileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC25A1A1CACD03000E363B9 /* UnzipFileUtils.m */; };
 		7FC25A1E1CAD8DFB00E363B9 /* OpenDrive.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC25A1D1CAD8DFB00E363B9 /* OpenDrive.m */; };
 		7FC25A211CAD9AEB00E363B9 /* GoogleDrive.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC25A201CAD9AEB00E363B9 /* GoogleDrive.m */; };
+		7FC25A361CAE0D9100E363B9 /* DropBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC25A351CAE0D9100E363B9 /* DropBox.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,8 @@
 		7FC25A1D1CAD8DFB00E363B9 /* OpenDrive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenDrive.m; sourceTree = "<group>"; };
 		7FC25A1F1CAD9AEB00E363B9 /* GoogleDrive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleDrive.h; sourceTree = "<group>"; };
 		7FC25A201CAD9AEB00E363B9 /* GoogleDrive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleDrive.m; sourceTree = "<group>"; };
+		7FC25A341CAE0D9100E363B9 /* DropBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropBox.h; sourceTree = "<group>"; };
+		7FC25A351CAE0D9100E363B9 /* DropBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropBox.m; sourceTree = "<group>"; };
 		892C9B2DED8BF4E65BC19CAE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		92DBAED8BDC0DEB20AEBE9F7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,6 +170,8 @@
 				7FC25A1D1CAD8DFB00E363B9 /* OpenDrive.m */,
 				7FC25A1F1CAD9AEB00E363B9 /* GoogleDrive.h */,
 				7FC25A201CAD9AEB00E363B9 /* GoogleDrive.m */,
+				7FC25A341CAE0D9100E363B9 /* DropBox.h */,
+				7FC25A351CAE0D9100E363B9 /* DropBox.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -317,6 +322,7 @@
 			files = (
 				7FB1C2BC1C5DEF270093FE7B /* ViewController.m in Sources */,
 				7FB1C2B91C5DEF270093FE7B /* AppDelegate.m in Sources */,
+				7FC25A361CAE0D9100E363B9 /* DropBox.m in Sources */,
 				7FC25A1B1CACD03000E363B9 /* UnzipFileUtils.m in Sources */,
 				7FB1C2E41C5EED9D0093FE7B /* UnzipFilesDetailViewController.m in Sources */,
 				7FC25A1E1CAD8DFB00E363B9 /* OpenDrive.m in Sources */,
