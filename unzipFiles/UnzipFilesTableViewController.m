@@ -10,14 +10,8 @@
 #import "UnzipFilesDetailViewController.h"
 #import "UnzipFilesTableViewCell.h"
 
-#define kNotificationName @"AppOpeningZipFileNotification"
-#define kUINibCellName @"UnzipFilesTableViewCell"
-#define kReusableIdentifier @"cellZipFile"
-#define kFileName @"fileName"
-#define kMACOSXFiles @"__MACOSX"
-#define kMIMETypes @"MIMETypes"
-#define kData @"data"
-#define kMIMEType @"MIMEType"
+#define kHeightForRow 56.0f;
+#define kNumberOfSections 1;
 
 @interface UnzipFilesTableViewController ()
 
@@ -47,7 +41,6 @@
     [self unzipFileFromUrl:nil orPath:filePath];
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,7 +52,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return kNumberOfSections;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -92,7 +85,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 56.0f;
+    return kHeightForRow;
 }
 
 #pragma mark - Unzip Files Methods

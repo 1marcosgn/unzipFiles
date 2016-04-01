@@ -8,37 +8,33 @@
 
 #import <UIKit/UIKit.h>
 #import "UnzipFileUtils.h"
+#import "OpenDrive.h"
+#import "GoogleDrive.h"
+#import "DropBox.h"
 
-#import <DropboxSDK/DropboxSDK.h>
-#import "GTMOAuth2ViewControllerTouch.h"
-#import "GTLDrive.h"
 #import "MenuItem.h"
 #import "PopMenu.h"
-#import "ODClient+DefaultConfiguration.h"
-#import "ODItemContentRequest.h"
 
-#import "ODClient.h"
-
-#import "ODDriveRequestBuilder.h"
-#import "ODDrive.h"
-#import "ODClient+HelperMethods.h"
-
-@interface UnzipFilesDetailViewController : UIViewController <DBRestClientDelegate>
+@interface UnzipFilesDetailViewController : UIViewController
 {
-    NSString *viewName;
-    DBRestClient *restClient;
+    NSString  *viewName;
+    
+    OpenDrive *openDriveObj;
+    GoogleDrive *googleDriveObj;
+    DropBox *dropBoxObj;
 }
 
 @property (weak, nonatomic) IBOutlet UIWebView *detailWebView;
 @property (nonatomic, assign) NSDictionary *unzipedFileData;
 @property (nonatomic, assign) NSString *unzipedFileExtesion;
-@property (nonatomic, readonly) DBRestClient *restClient;
-@property (nonatomic, strong) NSString *loadData;
-
-//Drive
-@property (nonatomic, strong) GTLServiceDrive *service;
 
 //OpenDrive
-@property (nonatomic, strong) ODClient *odClient;
+@property (nonatomic, readonly) OpenDrive *openDriveObj;
+
+//Google Drive
+@property (nonatomic, readonly) GoogleDrive *googleDriveObj;
+
+//Dropbox
+@property (nonatomic, readonly) DropBox *dropBoxObj;
 
 @end
