@@ -8,6 +8,8 @@
 
 #import "UnzipFileUtils.h"
 
+#define kSizeForLoadingView 100.0f
+
 @implementation UnzipFileUtils
 
 static BALoadingView *loadingView;
@@ -50,7 +52,7 @@ static BALoadingView *loadingView;
 {
     BOOL addView = [self isLoadingInView];
     
-    [loadingView setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, 160.0f, 160.0f)];
+    [loadingView setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, kSizeForLoadingView, kSizeForLoadingView)];
     
     if (!addView)
     {
@@ -78,7 +80,7 @@ static BALoadingView *loadingView;
 
 + (void)resetLoadingViewFrame
 {
-    [loadingView setFrame:CGRectMake(0.0f, 0.0f, 160.0f, 160.0f)];
+    [loadingView setFrame:CGRectMake(0.0f, 0.0f, kSizeForLoadingView, kSizeForLoadingView)];
 }
 
 @end
