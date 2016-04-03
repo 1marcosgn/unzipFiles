@@ -42,7 +42,9 @@
                                                                     {
                                                                         if (error == nil)
                                                                         {
-                                                                            NSLog(@"Success!!");
+                                                                            dispatch_async(dispatch_get_main_queue(), ^{
+                                                                                [UnzipFileUtils stopLoading];
+                                                                            });
                                                                         }
                                                                         else
                                                                         {

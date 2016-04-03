@@ -61,11 +61,13 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "ADALiOS/ADALiOS/ADALiOS/ADAL_iPad_Storyboard.storyboard"
   install_resource "ADALiOS/ADALiOS/ADALiOS/ADAL_iPhone_Storyboard.storyboard"
   install_resource "gtm-oauth2/Source/Touch/GTMOAuth2ViewTouch.xib"
+  install_resource "${BUILT_PRODUCTS_DIR}/BALoadingView.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "ADALiOS/ADALiOS/ADALiOS/ADAL_iPad_Storyboard.storyboard"
   install_resource "ADALiOS/ADALiOS/ADALiOS/ADAL_iPhone_Storyboard.storyboard"
   install_resource "gtm-oauth2/Source/Touch/GTMOAuth2ViewTouch.xib"
+  install_resource "${BUILT_PRODUCTS_DIR}/BALoadingView.bundle"
 fi
 
 mkdir -p "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

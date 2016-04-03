@@ -8,7 +8,16 @@
 
 #import "UnzipFileUtils.h"
 
+#define kSizeForLoadingView 100.0f
+
 @implementation UnzipFileUtils
+
+static BALoadingView *loadingView;
+
++ (void)initialize
+{
+    loadingView = [[BALoadingView alloc] init];
+}
 
 + (NSString *)temporaryDirectory:(NSDictionary *)unzipedFileData fileURL:(NSURL *)fileURL;
 {
@@ -37,6 +46,41 @@
 {
     NSError *error = nil;
     [[NSFileManager defaultManager] removeItemAtURL:fileURL error:&error];
+}
+
++ (void)startLoading:(UIView *)view
+{
+    BOOL addView = [self isLoadingInView];
+    
+    [loadingView setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, kSizeForLoadingView, kSizeForLoadingView)];
+    
+    if (!addView)
+    {
+        [loadingView setTag:100];
+        [loadingView setCenter:view.center];
+        [loadingView setSegmentColor:[UIColor orangeColor]];
+        [loadingView setClockwise:YES];
+        [loadingView initialize];
+        [loadingView startAnimation:BACircleAnimationFullCircle];
+        [view addSubview:loadingView];
+    }
+}
+
++ (void)stopLoading
+{
+    [loadingView stopAnimation];
+    [self resetLoadingViewFrame];
+    [loadingView removeFromSuperview];
+}
+
++ (BOOL)isLoadingInView
+{
+    return (loadingView.frame.origin.x == 0) ? NO : YES;
+}
+
++ (void)resetLoadingViewFrame
+{
+    [loadingView setFrame:CGRectMake(0.0f, 0.0f, kSizeForLoadingView, kSizeForLoadingView)];
 }
 
 @end

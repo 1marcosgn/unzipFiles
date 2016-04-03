@@ -67,6 +67,7 @@
             }
             else
             {
+                [UnzipFileUtils startLoading:self.view];
                 [self.dropBoxObj uploadFileToDropBox];
             }
             break;
@@ -81,14 +82,17 @@
             }
             else
             {
+                [UnzipFileUtils startLoading:self.view];
                 [self.googleDriveObj uploadFileToGoogleDrive:unzipedFileData fileURL:fileURL];
             }
             break;
             
         case 2:
-            //Open Drive
+            //One Drive
+            [UnzipFileUtils startLoading:self.view];
+            
             [self.openDriveObj uploadFileToOpenDrive:unzipedFileData
-                                             fileURL:fileURL];
+                                             fileURL:fileURL];            
             break;
             
         default:

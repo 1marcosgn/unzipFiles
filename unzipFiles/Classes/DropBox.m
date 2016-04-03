@@ -60,6 +60,7 @@
 
 - (void)restClient:(DBRestClient *)client uploadedFile:(NSString *)destPath from:(NSString *)srcPath metadata:(DBMetadata *)metadata
 {
+    [UnzipFileUtils stopLoading];
     [UnzipFileUtils cleaningUp:self.fileURL];
 }
 

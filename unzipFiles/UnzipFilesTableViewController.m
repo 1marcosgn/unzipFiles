@@ -132,8 +132,10 @@
                 extractedData = [archive extractDataFromFile:element
                                                     progress:^(CGFloat percentDecompressed)
                                                             {
-                                                                //TODO: Add UIActivity Indicator View
-                                                                NSLog(@"Extracting, %f%% complete", percentDecompressed);
+                                                                if (percentDecompressed == 1.000000)
+                                                                {
+                                                                    //NSLog(@"File uploaded!");
+                                                                }
                                                             }
                                                        error:&error];
                 //Data has been extracted correctly??
