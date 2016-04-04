@@ -52,7 +52,7 @@ static UIViewController *currentView;
                                                                         {
                                                                             NSString *errorStr = [NSString stringWithFormat:@"%@", error];
                                                                             
-                                                                            [UnzipFileUtils showAlertViewWithTitle:@"OneDrive"
+                                                                            [UnzipFileUtils showAlertViewWithTitle:kOneDrive
                                                                                                         andMessage:errorStr
                                                                                                             inView:currentView];
                                                                         }

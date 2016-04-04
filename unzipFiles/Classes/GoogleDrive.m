@@ -83,7 +83,7 @@
                                         {
                                             NSString *errorStr = [NSString stringWithFormat:@"%@", error];
                                             
-                                            [UnzipFileUtils showAlertViewWithTitle:@"Google Drive"
+                                            [UnzipFileUtils showAlertViewWithTitle:kGoogleDrive
                                                                         andMessage:errorStr
                                                                             inView:currentView];
                                         }
