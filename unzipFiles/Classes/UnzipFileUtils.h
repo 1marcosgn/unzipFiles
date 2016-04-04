@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "BALoadingView.h"
+#import "UZKArchive.h"
 
 @interface UnzipFileUtils : NSObject
 
@@ -24,5 +25,8 @@
 + (void)resetLoadingViewFrame;
 
 + (void)showAlertViewWithTitle:(NSString *)title andMessage:(NSString *)message inView:(UIViewController *)view;
+
+//Unzip files using either a URL or Path
++ (NSMutableArray *)unzipFileFromUrl:(NSURL *)URLFile orPath:(NSString *)filePath;
 
 @end
