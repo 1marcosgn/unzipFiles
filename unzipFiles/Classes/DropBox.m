@@ -71,7 +71,7 @@ static UIViewController *currentView;
 {
     NSString *errorStr = [NSString stringWithFormat:@"%@", error];
     
-    [UnzipFileUtils showAlertViewWithTitle:@"Dropbox"
+    [UnzipFileUtils showAlertViewWithTitle:kDropbox
                                 andMessage:errorStr
                                     inView:currentView];
 }
