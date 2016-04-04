@@ -10,11 +10,13 @@
 
 @implementation OpenDrive
 
-- (instancetype)init
+static UIViewController *currentView;
+
+- (instancetype)initWithViewController:(UIViewController *)view
 {
     if (self = [super init])
     {
-        //initialize something here...
+        currentView = view;
     }
     return self;
 }
@@ -48,7 +50,11 @@
                                                                         }
                                                                         else
                                                                         {
-                                                                            NSLog(@"one drive upload:%@", error);
+                                                                            NSString *errorStr = [NSString stringWithFormat:@"%@", error];
+                                                                            
+                                                                            [UnzipFileUtils showAlertViewWithTitle:@"OneDrive"
+                                                                                                        andMessage:errorStr
+                                                                                                            inView:currentView];
                                                                         }
                                                                     }
             ];

@@ -20,7 +20,7 @@
 @property (nonatomic, readonly) DBRestClient *restClient;
 @property (nonatomic, strong) NSString *loadData;
 
-- (instancetype)initWithObjects:(NSDictionary *)unzipedFileData fileURL:(NSURL *)fileURL;
+- (instancetype)initWithObjects:(NSDictionary *)unzipedFileData fileURL:(NSURL *)fileURL viewController:(UIViewController *)viewController;
 - (DBRestClient *)restClient;
 - (void)dropboxLoginDone;
 - (void)uploadFileToDropBox;

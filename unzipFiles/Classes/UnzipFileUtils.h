@@ -23,4 +23,6 @@
 
 + (void)resetLoadingViewFrame;
 
++ (void)showAlertViewWithTitle:(NSString *)title andMessage:(NSString *)message inView:(UIViewController *)view;
+
 @end

@@ -16,6 +16,8 @@
 
 @interface OpenDrive : NSObject
 
+- (instancetype)initWithViewController:(UIViewController *)view;
+
 - (void)uploadFileToOpenDrive:(NSDictionary *)unzipedFileData fileURL:(NSURL *)fileURL;
 
 @end
