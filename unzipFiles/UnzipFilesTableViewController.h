@@ -9,12 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "UZKArchive.h"
 #import "UnzipFileUtils.h"
+#import "UnzipFilesDetailViewController.h"
+#import "UnzipFilesTableViewCell.h"
 
 @interface UnzipFilesTableViewController : UITableViewController
 
 @property (nonatomic, retain) NSMutableArray *arrFiles;
-
-//Unzip files using either a URL or Path
-- (void)unzipFileFromUrl:(NSURL *)URLFile orPath:(NSString *)filePath;
 
 @end

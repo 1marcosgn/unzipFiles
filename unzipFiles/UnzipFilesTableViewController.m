@@ -7,8 +7,6 @@
 //
 
 #import "UnzipFilesTableViewController.h"
-#import "UnzipFilesDetailViewController.h"
-#import "UnzipFilesTableViewCell.h"
 
 #define kHeightForRow 56.0f;
 #define kNumberOfSections 1;
@@ -38,7 +36,7 @@
     NSString* filePath = [[NSBundle mainBundle] pathForResource:@"ArchiveFiles"
                                                          ofType:@"zip"];
     
-    [self unzipFileFromUrl:nil orPath:filePath];
+    [self initArrFiles:[UnzipFileUtils unzipFileFromUrl:nil orPath:filePath]];
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
@@ -46,6 +44,12 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+-(void)initArrFiles:(NSMutableArray *)arrFilesNew
+{
+    self.arrFiles = arrFilesNew;
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -77,7 +81,6 @@
 {
     //Open a new view with the content of the cell (send dictionary with the relevant information asociated to the selected file)
     UnzipFilesDetailViewController *detailView = [[UnzipFilesDetailViewController alloc]init];
-
     detailView.unzipedFileData = [self.arrFiles objectAtIndex:indexPath.row];
     
     [self.navigationController pushViewController:detailView animated:YES];
@@ -88,85 +91,11 @@
     return kHeightForRow;
 }
 
-#pragma mark - Unzip Files Methods
-
-- (void)unzipFileFromUrl:(NSURL *)URLFile orPath:(NSString *)filePath
-{
-    BOOL isCompressedFile = NO;
-    UZKArchive *archive;
-    NSError *archiveError = nil;
-    
-    //Initialize temporal array to store all extracted files
-    self.arrFiles = [NSMutableArray new];
-    
-    //Container for each extracted file
-    NSMutableDictionary *dataDictionary = [NSMutableDictionary dictionary];
-    
-    if (URLFile)
-    {
-        //Reading zip contents from URL
-        isCompressedFile = [UZKArchive urlIsAZip:URLFile];
-        archive = [[UZKArchive alloc] initWithURL:URLFile error:&archiveError];
-    }
-    else if (filePath)
-    {
-        //Reading zip contents from Path
-        isCompressedFile = [UZKArchive pathIsAZip:filePath];
-        archive = [[UZKArchive alloc] initWithPath:filePath error:&archiveError];
-    }
-    
-    if (isCompressedFile)
-    {
-        __block NSError *error = nil;
-        __block NSData *extractedData;
-        
-        NSArray <NSString *> *filesInArchive = [archive listFilenames:&error];
-        
-        //List the content of the archive
-        [filesInArchive enumerateObjectsUsingBlock:^(NSString *element, NSUInteger idx, BOOL * _Nonnull stop) {
-            
-            //Discard default __MACOSX files included on zip files created by MAC OS
-            if (![element containsString:kMACOSXFiles])
-            {
-                //Extracting data
-                extractedData = [archive extractDataFromFile:element
-                                                    progress:^(CGFloat percentDecompressed)
-                                                            {
-                                                                if (percentDecompressed == 1.000000)
-                                                                {
-                                                                    //NSLog(@"File uploaded!");
-                                                                }
-                                                            }
-                                                       error:&error];
-                //Data has been extracted correctly??
-                if (extractedData)
-                {
-                    //Get the extension based the "MIMETypes.plist" and store that as "MIMEType" on dataDictionary
-                    NSDictionary *MIMETypesInfo = [[NSDictionary alloc]initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:kMIMETypes ofType:@"plist"]];
-                    
-                    NSString *MIMEType = MIMETypesInfo[[[element pathExtension] lowercaseString]];
-                    
-                    [dataDictionary setObject:extractedData forKey:kData];
-                    [dataDictionary setObject:element forKey:kFileName];
-                    [dataDictionary setObject:MIMEType forKey:kMIMEType];
-                    
-                    //Store the dictionary in the main array of files
-                    [self.arrFiles addObject:[dataDictionary copy]];
-                    
-                    //Remove objects to avoid duplicate files
-                    [dataDictionary removeAllObjects];
-                }
-            }
-        }];
-        
-        [self.tableView reloadData];
-        
-    }
-}
+#pragma mark - Unzip Files Notification
 
 - (void)receiveOpenZipFileNotification:(NSNotification *) notification
 {
-    [self unzipFileFromUrl:notification.object orPath:nil];
+    [self initArrFiles:[UnzipFileUtils unzipFileFromUrl:notification.object orPath:nil]];
 }
 
 @end
