@@ -139,7 +139,7 @@
 {
     if (openDriveObj == nil)
     {
-        openDriveObj = [[OpenDrive alloc]init];
+        openDriveObj = [[OpenDrive alloc]initWithViewController:self];
     }
     return openDriveObj;
 }
@@ -148,7 +148,7 @@
 {
     if (googleDriveObj == nil)
     {
-        googleDriveObj = [[GoogleDrive alloc] initWithObjects:unzipedFileData fileURL:fileURL];
+        googleDriveObj = [[GoogleDrive alloc] initWithObjects:unzipedFileData fileURL:fileURL viewController:self];
     }
     return googleDriveObj;
 }
@@ -157,7 +157,7 @@
 {
     if (dropBoxObj == nil)
     {
-        dropBoxObj = [[DropBox alloc] initWithObjects:unzipedFileData fileURL:fileURL];
+        dropBoxObj = [[DropBox alloc] initWithObjects:unzipedFileData fileURL:fileURL viewController:self];
     }
     return dropBoxObj;
 }

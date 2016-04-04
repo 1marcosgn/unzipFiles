@@ -11,12 +11,14 @@
 @implementation GoogleDrive
 {
     GTMOAuth2ViewControllerTouch *authController;
+    UIViewController *currentView;
 }
 
-- (instancetype)initWithObjects:(NSDictionary *)unzipedFileData fileURL:(NSURL *)fileURL
+- (instancetype)initWithObjects:(NSDictionary *)unzipedFileData fileURL:(NSURL *)fileURL viewController:(UIViewController *)viewController
 {
     if (self = [super init])
     {
+        currentView = viewController;
         self.unzipedFileData = unzipedFileData;
         self.fileURL = fileURL;
         self.service = [[GTLServiceDrive alloc] init];
@@ -45,7 +47,9 @@
 {
     if (error != nil)
     {
-        [self showAlert:@"Authentication Error" message:error.localizedDescription];
+        [UnzipFileUtils showAlertViewWithTitle:@"Authentication Error"
+                                    andMessage:error.localizedDescription
+                                        inView:currentView];
         self.service.authorizer = nil;
     }
     else
@@ -54,11 +58,6 @@
         [authController dismissViewControllerAnimated:YES completion:nil];
         [self uploadFileToGoogleDrive:self.unzipedFileData fileURL:self.fileURL];
     }
-}
-
-- (void)showAlert:(NSString *)title message:(NSString *)message
-{
-    NSLog(@"%@, %@", title, message);
 }
 
 - (void)uploadFileToGoogleDrive:(NSDictionary *)unzipedFileData fileURL:(NSURL *)fileURL
@@ -82,7 +81,11 @@
                                     {
                                         if (error)
                                         {
-                                            NSLog(@"Error: %@", error);
+                                            NSString *errorStr = [NSString stringWithFormat:@"%@", error];
+                                            
+                                            [UnzipFileUtils showAlertViewWithTitle:@"Google Drive"
+                                                                        andMessage:errorStr
+                                                                            inView:currentView];
                                         }
                                         else
                                         {
@@ -96,8 +99,8 @@
                                        unsigned long long numberOfBytesRead,
                                        unsigned long long dataLength)
         {
-            NSLog(@"%llu", numberOfBytesRead);
-            NSLog(@"%llu", dataLength);
+            //NSLog(@"%llu", numberOfBytesRead);
+            //NSLog(@"%llu", dataLength);
         };
     }
 }

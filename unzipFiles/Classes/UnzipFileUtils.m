@@ -83,4 +83,17 @@ static BALoadingView *loadingView;
     [loadingView setFrame:CGRectMake(0.0f, 0.0f, kSizeForLoadingView, kSizeForLoadingView)];
 }
 
++ (void)showAlertViewWithTitle:(NSString *)title andMessage:(NSString *)message inView:(UIViewController *)view
+{
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:title
+                                                                   message:message
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {}];
+    
+    [alert addAction:defaultAction];
+    [view presentViewController:alert animated:YES completion:nil];
+}
+
 @end

@@ -17,10 +17,9 @@
 @property (nonatomic, strong) NSDictionary *unzipedFileData;
 @property (nonatomic, strong) NSURL *fileURL;
 
-- (instancetype)initWithObjects:(NSDictionary *)unzipedFileData fileURL:(NSURL *)fileURL;
+- (instancetype)initWithObjects:(NSDictionary *)unzipedFileData fileURL:(NSURL *)fileURL viewController:(UIViewController *)viewController;
 - (GTMOAuth2ViewControllerTouch *)createAuthController;
 - (void)viewController:(GTMOAuth2ViewControllerTouch *)viewController finishedWithAuth:(GTMOAuth2Authentication *)authResult error:(NSError *)error;
-- (void)showAlert:(NSString *)title message:(NSString *)message;
 - (void)uploadFileToGoogleDrive:(NSDictionary *)unzipedFileData fileURL:(NSURL *)fileURL;
 
 @end

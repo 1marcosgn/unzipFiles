@@ -10,12 +10,15 @@
 
 @implementation DropBox
 
+static UIViewController *currentView;
+
 @synthesize loadData;
 
-- (instancetype)initWithObjects:(NSDictionary *)unzipedFileData fileURL:(NSURL *)fileURL
+- (instancetype)initWithObjects:(NSDictionary *)unzipedFileData fileURL:(NSURL *)fileURL viewController:(UIViewController *)viewController
 {
     if (self = [super init])
     {
+        currentView = viewController;
         self.unzipedFileData = unzipedFileData;
         self.fileURL = fileURL;
         
@@ -66,7 +69,11 @@
 
 - (void)restClient:(DBRestClient *)client uploadFileFailedWithError:(NSError *)error
 {
-    NSLog(@"File upload failed with error: %@", error);
+    NSString *errorStr = [NSString stringWithFormat:@"%@", error];
+    
+    [UnzipFileUtils showAlertViewWithTitle:@"Dropbox"
+                                andMessage:errorStr
+                                    inView:currentView];
 }
 
 - (void)dropboxLogOut
