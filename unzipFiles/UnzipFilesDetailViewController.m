@@ -34,7 +34,7 @@
                                                                     style:UIBarButtonItemStylePlain
                                                                    target:self action:@selector(showPopMenu)];
     
-    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"FM College Team" size:30], NSFontAttributeName, [UIColor whiteColor], NSForegroundColorAttributeName, nil];
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Avenir" size:20], NSFontAttributeName, [UIColor whiteColor], NSForegroundColorAttributeName, nil];
     
     [shareButton setTitleTextAttributes:attributes forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = shareButton;

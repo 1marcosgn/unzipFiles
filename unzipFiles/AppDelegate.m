@@ -23,6 +23,7 @@ static int outstandingRequests;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [[UINavigationBar appearance] setTintColor: [UIColor whiteColor]];
     
     NSString *dropBoxAppKey = @"sg40lm7g7bzcl0q";
     NSString *dropBoxAppSecret = @"h1n0p3fxiptm67g";

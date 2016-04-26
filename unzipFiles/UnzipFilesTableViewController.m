@@ -23,9 +23,27 @@
 {
     [super viewDidLoad];
     
+    //:::::
+    CGRect frame = CGRectMake(0, 0, 70, 44);
+    UILabel *label = [[UILabel alloc] initWithFrame:frame];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont fontWithName:@"Avenir" size:20];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UIColor whiteColor];
+    label.text = @"UnzipFiles";
+    self.navigationItem.titleView = label;
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
+    
+    
+    
+    UIColor *topBarColor = [UIColor colorWithRed:253.0f/255.0f green:128.0f/255.0f blue:14.0f/255.0f alpha:1.0f];
+    self.navigationController.navigationBar.barTintColor = topBarColor;
+    
+    //:::
+    
     //Adding an observer for "AppOpeningZipFileNotification"
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receiveOpenZipFileNotification:)
+                                            selector:@selector(receiveOpenZipFileNotification:)
                                                  name:kNotificationName
                                                object:nil];
     
