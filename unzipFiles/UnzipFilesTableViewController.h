@@ -12,8 +12,15 @@
 #import "UnzipFilesDetailViewController.h"
 #import "UnzipFilesTableViewCell.h"
 
-@interface UnzipFilesTableViewController : UITableViewController
+#import "YSTutorialViewController.h"
+#import "YSTutorialPageSerializer.h"
+
+@interface UnzipFilesTableViewController : UITableViewController <YSTutorialViewControllerDelegate, YSTutorialViewControllerDataSource>
 
 @property (nonatomic, retain) NSMutableArray *arrFiles;
+
+@property (nonatomic, retain) NSMutableArray *tutorialPages;
+
+@property (nonatomic, strong) YSTutorialViewController *tutorialViewController;
 
 @end

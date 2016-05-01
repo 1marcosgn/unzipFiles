@@ -1,0 +1,23 @@
+[
+ {
+     "imageName":"tut1icon.png",
+     "bottomViewColor":"183,28,28",
+     "iconName":"tut2Icon.png",
+     "title":"Unzip your Files",
+     "text":"You can easy unzip your files from your mailbox"
+ },
+ {
+     "imageName":"tut1icon.png",
+     "bottomViewColor":"246,85,29",
+     "iconName":"tut2Icon.png",
+     "title":"Share on line",
+     "text":"Share your files using Dropbox, GoogleDrive or OneDrive"
+ },
+ {
+     "imageName":"tut1icon.png",
+     "bottomViewColor":"17,91,153",
+     "iconName":"tut2Icon.png",
+     "title":"Enjoy the app",
+     "text":"Enjoy for free all this features!!"
+ }
+]

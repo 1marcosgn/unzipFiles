@@ -54,6 +54,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>YSTutorialViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>gtm-http-fetcher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -72,6 +77,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>04663B4D179A3C59507347834EE18211</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>137D9ACF58C97E923FC9604F5398140B</key>
 		<dict>
 			<key>primary</key>
@@ -82,7 +92,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2312163E6AC91A24B6DEB8ED518AF133</key>
+		<key>22C2FEACE2F4DA0D1CE0EF3E4238B528</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>26558573E773F55CF75167748838E8FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,7 +107,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>41D5C7CB0EEB0B7B2744D278A6DE9940</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>496953AC690E7E95A3AE0C8180924FC6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>535784D15DD0BD7901D92FD71D940F6D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,27 +137,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>94C4E931AA7B473DC7C1A7E0302F96CD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9A6EA441B2899D62C5D3CA7A5265B757</key>
+		<key>9513EC1ABC1074FB7BB048F4FD4C1C14</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>9F8251397B63FCE573AC7F8BFE35ECD3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B62006E2E188AACAD17019F56C3B7215</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BA981397B197ED230422BCB16A82BFF6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

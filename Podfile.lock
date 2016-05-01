@@ -195,6 +195,7 @@ PODS:
     - XHRealTimeBlur
   - UnzipKit (1.6.2)
   - XHRealTimeBlur (1.7)
+  - YSTutorialViewController (0.2)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
@@ -203,6 +204,7 @@ DEPENDENCIES:
   - OneDriveSDK (~> 1.1)
   - PopMenu
   - UnzipKit (~> 1.6)
+  - YSTutorialViewController (~> 0.2)
 
 SPEC CHECKSUMS:
   ADALiOS: c478014b5fb25735456699182842f062d5098ff4
@@ -216,5 +218,6 @@ SPEC CHECKSUMS:
   PopMenu: 26b97baeaf250070f4f61b93727ca86d127d7bc5
   UnzipKit: 0ba0a039e162e6dba98b5c53c6edc9aef081b69c
   XHRealTimeBlur: 661fadd5691ba2d349758e8fd5fbdb499ac55f8c
+  YSTutorialViewController: d2fdc93863a729749cc961df6395b776fbe27874
 
 COCOAPODS: 0.39.0

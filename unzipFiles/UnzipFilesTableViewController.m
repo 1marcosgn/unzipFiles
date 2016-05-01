@@ -17,11 +17,13 @@
 
 @implementation UnzipFilesTableViewController
 
-@synthesize arrFiles;
+@synthesize arrFiles, tutorialPages;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self showTutorial];
     
     //:::::
     CGRect frame = CGRectMake(0, 0, 70, 44);
@@ -114,6 +116,61 @@
 - (void)receiveOpenZipFileNotification:(NSNotification *) notification
 {
     [self initArrFiles:[UnzipFileUtils unzipFileFromUrl:notification.object orPath:nil]];
+}
+
+#pragma mark - Tutorial Methods
+
+- (void)showTutorial
+{
+    [self pagesForTutorial];
+    
+    self.tutorialViewController = [[YSTutorialViewController alloc]init];
+    
+    [self.tutorialViewController.view setTag:100];
+    [self.tutorialViewController setDataSource:self];
+    [self.tutorialViewController setDelegate:self];
+    [self.tutorialViewController reloadTutorialViewController];
+    
+    UIWindow* currentWindow = [UIApplication sharedApplication].keyWindow;
+    [currentWindow addSubview:self.tutorialViewController.view];
+}
+     
+- (NSArray *)pagesForTutorial
+{
+    self.tutorialPages = [[NSMutableArray alloc] initWithArray:[YSTutorialPageSerializer tutorialPageViewsWithJSONFile:@"tutorialPages"]];
+    return self.tutorialPages;
+}
+
+- (NSInteger)numberOfPagesInTutorialViewController:(YSTutorialViewController *)viewController
+{
+    return self.tutorialPages.count;
+}
+
+- (YSTutorialPageView *)tutorialViewController:(YSTutorialViewController *)viewController tutorialPageViewForIndex:(NSInteger)index
+{
+    return (YSTutorialPageView *)self.tutorialPages[index];
+}
+
+-(UIImage *)tutorialViewControllerBackgroundImageForIndex:(NSInteger)index
+{
+    if (index == 0) {
+        return [UIImage imageNamed:@"tut1Background.png"];
+    } else if (index == 1) {
+        return [UIImage imageNamed:@"tut2Background.png"];
+    } else if (index == 2) {
+        return [UIImage imageNamed:@"tut3Background.png"];
+    }
+    return nil;
+}
+
+- (void)tutorialViewControllerDidPressedCloseButton: (YSTutorialViewController *)viewController
+{
+    [self.tutorialViewController.view removeFromSuperview];
+}
+
+- (void)tutorialViewController:(YSTutorialViewController *)viewController didScrollToPageAtIndex:(NSInteger)index
+{
+    
 }
 
 @end

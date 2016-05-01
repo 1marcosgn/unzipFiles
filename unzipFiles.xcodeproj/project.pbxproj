@@ -10,6 +10,7 @@
 		19DC3C23D82482B56ADFFA69 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16CDF9B64CA3E3DC5D9ECC5F /* libPods.a */; };
 		7F1F1C8A1CA5A73C00D82411 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1F1C891CA5A73C00D82411 /* DropboxSDK.framework */; };
 		7F1F1C8C1CA5A8BB00D82411 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1F1C8B1CA5A8BB00D82411 /* Security.framework */; };
+		7F9D8E5C1CD410C1004415A4 /* tutorialPages.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F9D8E5B1CD410C1004415A4 /* tutorialPages.json */; };
 		7FB1C2B61C5DEF270093FE7B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1C2B51C5DEF270093FE7B /* main.m */; };
 		7FB1C2B91C5DEF270093FE7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1C2B81C5DEF270093FE7B /* AppDelegate.m */; };
 		7FB1C2BF1C5DEF270093FE7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FB1C2BD1C5DEF270093FE7B /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 		16CDF9B64CA3E3DC5D9ECC5F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F1F1C891CA5A73C00D82411 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
 		7F1F1C8B1CA5A8BB00D82411 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		7F9D8E5B1CD410C1004415A4 /* tutorialPages.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tutorialPages.json; sourceTree = "<group>"; };
 		7FB1C2B11C5DEF270093FE7B /* unzipFiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = unzipFiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FB1C2B51C5DEF270093FE7B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7FB1C2B71C5DEF270093FE7B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 		7FB1C2D41C5DF4C10093FE7B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7F9D8E5B1CD410C1004415A4 /* tutorialPages.json */,
 				7FB1C2E81C5F1A7B0093FE7B /* ArchiveFiles.zip */,
 				7FB1C2EC1C5F2C670093FE7B /* MIMETypes.plist */,
 			);
@@ -257,6 +260,7 @@
 				7FB1C2E91C5F1A7B0093FE7B /* ArchiveFiles.zip in Resources */,
 				7FB1C2BF1C5DEF270093FE7B /* Main.storyboard in Resources */,
 				7FB1C2E01C5EE8A30093FE7B /* UnzipFilesTableViewCell.xib in Resources */,
+				7F9D8E5C1CD410C1004415A4 /* tutorialPages.json in Resources */,
 				7FB1C2E51C5EED9D0093FE7B /* UnzipFilesDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
